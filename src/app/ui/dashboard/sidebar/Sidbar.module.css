@@ -1,0 +1,14 @@
+.link {
+  display: flex;
+  column-gap: 0.5rem;
+  border-radius: 0.3rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.link:hover {
+  background-color: #eff8ff;
+}
