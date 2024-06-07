@@ -12,3 +12,8 @@
 .link:hover {
   background-color: #eff8ff;
 }
+
+.active {
+  background-color: #eff8ff;
+  color: #0275d8;
+}

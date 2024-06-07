@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import sidebarLinks from "../../../../../public/sidebarLinks";
 import { Box, List, ListItem, Text } from "@chakra-ui/react";
@@ -11,6 +12,7 @@ import { ImProfile } from "react-icons/im";
 import { IoMdSettings } from "react-icons/io";
 import Link from "next/link";
 import styles from "./Sidbar.module.css";
+import { usePathname } from "next/navigation";
 
 interface NavLinkType {
   name: string;
@@ -90,6 +92,7 @@ const getIcon = (iconName: string): JSX.Element | null => {
 };
 
 const Sidebar = () => {
+  const pathname = usePathname();
   return (
     <Box sx={sideLinkContainer}>
       <Text sx={logo}>Learnopia</Text>
@@ -100,7 +103,14 @@ const Sidebar = () => {
             <List sx={list}>
               {navLinks[key].map((items, idx) => (
                 <ListItem key={idx} sx={listItems}>
-                  <Link href={items.link} className={styles.link}>
+                  <Link
+                    href={items.link}
+                    className={
+                      pathname === items.link
+                        ? [styles.link, styles.active].join(" ")
+                        : styles.link
+                    }
+                  >
                     <Box>{getIcon(items.icon)}</Box>
                     <Box>{items.name}</Box>
                   </Link>
