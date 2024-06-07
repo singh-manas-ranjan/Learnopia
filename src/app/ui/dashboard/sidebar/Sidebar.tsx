@@ -101,8 +101,8 @@ const Sidebar = () => {
               {navLinks[key].map((items, idx) => (
                 <ListItem key={idx} sx={listItems}>
                   <Link href={items.link} className={styles.link}>
-                    {getIcon(items.icon)}
-                    {items.name}
+                    <Box>{getIcon(items.icon)}</Box>
+                    <Box>{items.name}</Box>
                   </Link>
                 </ListItem>
               ))}

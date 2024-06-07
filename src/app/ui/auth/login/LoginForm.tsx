@@ -7,8 +7,10 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 interface FormType {
   username: string;
@@ -17,22 +19,29 @@ interface FormType {
 
 const submitBtn = {
   mt: "4",
+  bg: "#0275d8",
+  color: "#fff",
+  _hover: { color: "#fff", bg: "#59A9FF" },
 };
 
 const errorMsg = {
   color: "red",
 };
 
+const inputField = {
+  bg: "#fff",
+};
+
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<FormType>();
 
+  const router = useRouter();
   const onSubmit = (e: FormType) => {
-    console.log(getValues);
+    router.push("/dashboard");
   };
 
   return (
@@ -46,11 +55,11 @@ const LoginForm = () => {
           type="text"
           id="username"
           name="username"
-          bg={"#fff"}
+          sx={inputField}
         />
         <Text sx={errorMsg}>{errors.username?.message}</Text>
       </FormControl>
-      <FormControl>
+      <FormControl mt={5}>
         <FormLabel htmlFor="password">Password</FormLabel>
         <Input
           {...register("password", {
@@ -59,19 +68,23 @@ const LoginForm = () => {
           type="password"
           name="password"
           id="password"
-          bg={"#fff"}
+          sx={inputField}
         />
         <Text sx={errorMsg}>{errors.password?.message}</Text>
       </FormControl>
-      <Button
-        type="submit"
-        sx={submitBtn}
-        bg={"#0275d8"}
-        color={"#fff"}
-        _hover={{ color: "#fff", bg: "#59A9FF" }}
-      >
-        Sign in
-      </Button>
+      <FormControl mt={5}>
+        <Text>
+          Not registered ?{" "}
+          <Link href={"/register"} style={{ color: "#0275d8" }}>
+            Register
+          </Link>
+        </Text>
+      </FormControl>
+      <FormControl>
+        <Button type="submit" sx={submitBtn} onSubmit={handleSubmit(onSubmit)}>
+          Sign in
+        </Button>
+      </FormControl>
     </form>
   );
 };
