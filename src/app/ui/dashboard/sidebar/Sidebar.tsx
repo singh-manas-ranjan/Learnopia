@@ -1,25 +1,7 @@
-"use client";
 import React from "react";
-import sidebarLinks from "../../../../../public/sidebarLinks";
+import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
 import { Box, List, ListItem, Text } from "@chakra-ui/react";
-import { MdSpaceDashboard } from "react-icons/md";
-import { FaTools } from "react-icons/fa";
-import { PiExamFill } from "react-icons/pi";
-import { MdPlayLesson } from "react-icons/md";
-import { FaRegCreditCard } from "react-icons/fa";
-import { GiProgression } from "react-icons/gi";
-import { ImProfile } from "react-icons/im";
-import { IoMdSettings } from "react-icons/io";
-import Link from "next/link";
-import styles from "./Sidbar.module.css";
-import { usePathname } from "next/navigation";
-
-interface NavLinkType {
-  name: string;
-  icon: string;
-  link: string;
-}
-
+import SideLink from "./sideLinks/SideLink";
 interface sideBarLinks {
   [key: string]: NavLinkType[];
 }
@@ -68,31 +50,7 @@ const listItems = {
   color: "black",
 };
 
-const getIcon = (iconName: string): JSX.Element | null => {
-  switch (iconName) {
-    case "dashboard":
-      return <MdSpaceDashboard />;
-    case "training":
-      return <FaTools />;
-    case "exams":
-      return <PiExamFill />;
-    case "lessons":
-      return <MdPlayLesson />;
-    case "card":
-      return <FaRegCreditCard />;
-    case "progress":
-      return <GiProgression />;
-    case "profile":
-      return <ImProfile />;
-    case "settings":
-      return <IoMdSettings />;
-    default:
-      return null;
-  }
-};
-
 const Sidebar = () => {
-  const pathname = usePathname();
   return (
     <Box sx={sideLinkContainer}>
       <Text sx={logo}>Learnopia</Text>
@@ -101,19 +59,9 @@ const Sidebar = () => {
           <Box sx={sectionContainer}>
             <Text sx={sectionHeading}>{key.replace("_", " ")}</Text>
             <List sx={list}>
-              {navLinks[key].map((items, idx) => (
+              {navLinks[key].map((sideLink, idx) => (
                 <ListItem key={idx} sx={listItems}>
-                  <Link
-                    href={items.link}
-                    className={
-                      pathname === items.link
-                        ? [styles.link, styles.active].join(" ")
-                        : styles.link
-                    }
-                  >
-                    <Box>{getIcon(items.icon)}</Box>
-                    <Box>{items.name}</Box>
-                  </Link>
+                  <SideLink sideLink={sideLink} />
                 </ListItem>
               ))}
             </List>

@@ -13,4 +13,10 @@ const sidebarLinks = {
   ],
 };
 
+export type NavLinkType = {
+  name: string;
+  icon: string;
+  link: string;
+};
+
 export default sidebarLinks;
