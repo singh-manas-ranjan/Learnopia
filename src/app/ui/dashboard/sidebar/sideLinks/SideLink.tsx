@@ -16,6 +16,7 @@ import { IoMdSettings } from "react-icons/io";
 
 interface Props {
   sideLink: NavLinkType;
+  isOpen: boolean;
 }
 
 const getIcon = (iconName: string): JSX.Element | null => {
@@ -41,7 +42,7 @@ const getIcon = (iconName: string): JSX.Element | null => {
   }
 };
 
-const SideLink = ({ sideLink }: Props) => {
+const SideLink = ({ sideLink, isOpen }: Props) => {
   const pathname = usePathname();
   return (
     <Link
@@ -53,7 +54,7 @@ const SideLink = ({ sideLink }: Props) => {
       }
     >
       <Box>{getIcon(sideLink.icon)}</Box>
-      <Box>{sideLink.name}</Box>
+      {isOpen && <Box>{sideLink.name}</Box>}
     </Link>
   );
 };

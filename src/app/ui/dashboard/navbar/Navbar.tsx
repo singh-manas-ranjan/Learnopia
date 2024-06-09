@@ -40,6 +40,7 @@ const profile = {
   alignItems: "center",
   columnGap: ".5rem",
   padding: ".3rem",
+  color: "#044F63",
 };
 
 const notificationContainer = {
@@ -66,7 +67,7 @@ const rightNav = {
 const Navbar = () => {
   return (
     <Flex sx={nav}>
-      <Text display={"flex"}>
+      <Text display={"flex"} color={"#044F63"}>
         Welcome Back{" "}
         <FaHandsClapping color="orange" style={{ marginLeft: ".5rem" }} />{" "}
       </Text>

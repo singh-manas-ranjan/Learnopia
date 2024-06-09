@@ -16,7 +16,7 @@ const DashBoardLayout = ({ children }: Props) => {
   };
 
   const menuContainer = {
-    flex: "1",
+    // flex: "1",
     padding: "1rem",
     h: "100vh",
     display: "flex",
@@ -34,7 +34,7 @@ const DashBoardLayout = ({ children }: Props) => {
 
   return (
     <Box as="main" sx={container}>
-      <Box sx={menuContainer}>
+      <Box sx={menuContainer} width={"fit-content"}>
         <Sidebar />
       </Box>
       <Box sx={nav_content_container}>

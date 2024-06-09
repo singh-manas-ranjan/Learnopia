@@ -2,19 +2,25 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Link } from "@chakra-ui/next-js";
+import { MdStart } from "react-icons/md";
+import { LiaSignInAltSolid } from "react-icons/lia";
 import {
   Box,
+  Button,
   Container,
   Flex,
   Heading,
+  HStack,
   List,
   ListItem,
   Text,
+  VStack,
 } from "@chakra-ui/react";
+import { MdTitle } from "react-icons/md";
 
 export default function Page() {
   const mainStyle = {
-    w: "100%",
+    w: "100vw",
     h: "100vh",
   };
 
@@ -41,31 +47,63 @@ export default function Page() {
     p: 0,
   };
 
-  const linkStyle = {
-    w: "100%",
-    textAlign: "center",
-    padding: ".3rem 1rem",
-    _hover: { bg: "black", color: "white" },
+  const btnStyle = {
+    bgColor: "#044F63",
+    color: "#fff",
+    _hover: { bg: "#55c2da" },
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    columnGap: 2,
   };
+
   return (
-    <Box as="main" sx={mainStyle}>
+    <Box
+      as="main"
+      sx={mainStyle}
+      bgImage={"url('/bgImg.png')"}
+      backgroundSize={"cover"}
+      backgroundPosition={"top"}
+      backgroundRepeat={"no-repeat"}
+    >
       <Flex as="nav" sx={navStyle}>
-        <Text fontSize={"xx-large"} fontWeight={"bold"}>
+        <Text
+          fontSize={"xx-large"}
+          fontWeight={"bold"}
+          padding={"1rem"}
+          color={"#044F63"}
+        >
           Learnopia
         </Text>
-        <List sx={list}>
-          <ListItem sx={listItem}>
-            <Link href={"/login"} sx={linkStyle}>
-              Login
-            </Link>
-          </ListItem>
-          <ListItem sx={listItem}>
-            <Link href={"/register"} sx={linkStyle}>
-              Register
-            </Link>
-          </ListItem>
-        </List>
       </Flex>
+      <VStack
+        position={"absolute"}
+        top={"30%"}
+        left={"5%"}
+        p={"1rem"}
+        spacing={5}
+        width={"32%"}
+        alignItems={"left"}
+        color={"#044F63"}
+      >
+        <Heading as={"h1"} size={"xl"} width={"80%"}>
+          Unleashing The Power of <Text as={"u"}>Learning</Text> Potential
+        </Heading>
+        <Heading as={"h3"} size={"md"} lineHeight={"1.8rem"}>
+          Ignite your passion for learning, explore limitless possibilities, and
+          shape your educational destiny with our innovative and student-centric
+          online platform.
+        </Heading>
+        <HStack spacing={5}>
+          <Button as={"a"} href="/login" sx={btnStyle}>
+            Login <LiaSignInAltSolid size={20} />
+          </Button>
+          <Button as={"a"} href="/register" sx={btnStyle}>
+            Register <MdStart size={20} />
+          </Button>
+        </HStack>
+      </VStack>
     </Box>
   );
 }
