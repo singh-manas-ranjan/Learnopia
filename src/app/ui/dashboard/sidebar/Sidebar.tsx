@@ -91,7 +91,7 @@ const Sidebar = () => {
         )}
       </Box>
       <Box>
-        <HamMenu handleClickMenu={handleMenuClick} />
+        <HamMenu handleClickMenu={handleMenuClick} isMenuOpen={menuOpen} />
       </Box>
       <Box sx={navLinksContainer}>
         {Object.keys(navLinks).map((key, idx) => (

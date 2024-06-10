@@ -1,12 +1,13 @@
 import { Button } from "@chakra-ui/react";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoClose } from "react-icons/io5";
 import React from "react";
 
 interface Props {
   handleClickMenu: () => void;
+  isMenuOpen: boolean;
 }
 
-const HamMenu = ({ handleClickMenu }: Props) => {
+const HamMenu = ({ handleClickMenu, isMenuOpen }: Props) => {
   return (
     <Button
       onClick={() => handleClickMenu()}
@@ -14,7 +15,7 @@ const HamMenu = ({ handleClickMenu }: Props) => {
       color={"#044F63"}
       _hover={{ color: "#0275d8", bg: "#e2f2f6" }}
     >
-      <IoMenu size={20} />
+      {isMenuOpen ? <IoClose size={20} /> : <IoMenu size={20} />}
     </Button>
   );
 };

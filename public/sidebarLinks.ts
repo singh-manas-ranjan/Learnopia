@@ -1,7 +1,7 @@
 const sidebarLinks = {
   Home_Page: [
     { name: "Dashboard", icon: "dashboard", link: "/dashboard" },
-    { name: "Training", icon: "training", link: "/dashboard/training" },
+    { name: "Courses", icon: "courses", link: "/dashboard/courses" },
     { name: "Exams", icon: "exams", link: "/dashboard/exams" },
     { name: "Lessons", icon: "lessons", link: "/dashboard/lessons" },
     { name: "Subscriptions", icon: "card", link: "/dashboard/subscriptions" },

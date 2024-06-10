@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import styles from "./SideLink.module.css";
 import { Box } from "@chakra-ui/react";
 import { MdSpaceDashboard } from "react-icons/md";
-import { FaTools } from "react-icons/fa";
+import { GiBookshelf } from "react-icons/gi";
 import { PiExamFill } from "react-icons/pi";
 import { MdPlayLesson } from "react-icons/md";
 import { FaRegCreditCard } from "react-icons/fa";
@@ -23,8 +23,8 @@ const getIcon = (iconName: string): JSX.Element | null => {
   switch (iconName) {
     case "dashboard":
       return <MdSpaceDashboard />;
-    case "training":
-      return <FaTools />;
+    case "courses":
+      return <GiBookshelf />;
     case "exams":
       return <PiExamFill />;
     case "lessons":
