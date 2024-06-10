@@ -1,9 +1,11 @@
 import {
+  Box,
   Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
+  Grid,
   Heading,
   Image,
   Text,
@@ -35,15 +37,17 @@ const CourseCard = ({
           w={"100%"}
         />
       </CardHeader>
-      <CardBody h={"40%"}>
-        <Heading size="md" h={"60%"}>
+      <CardBody display={"grid"}>
+        <Heading size="md" h={"75px"}>
           {courseName}
         </Heading>
-        <Text>{author}</Text>
-        <Text>{courseRating}</Text>
-        <Text color="blue.600">{coursePrice ? coursePrice : "Free"}</Text>
+        <Grid>
+          <Text>{author}</Text>
+          <Text>{courseRating}</Text>
+          <Text color="blue.600">{coursePrice ? coursePrice : "Free"}</Text>
+        </Grid>
       </CardBody>
-      <CardFooter>
+      <CardFooter h={"15%"} display={"flex"} alignItems={"flex-end"}>
         <Button colorScheme="teal">Enroll Now!</Button>
       </CardFooter>
     </Card>
