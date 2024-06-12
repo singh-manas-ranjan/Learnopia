@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import styles from "./SideLink.module.css";
 import { Box } from "@chakra-ui/react";
 import { MdSpaceDashboard } from "react-icons/md";
-import { GiBookshelf } from "react-icons/gi";
 import { PiExamFill } from "react-icons/pi";
 import { MdPlayLesson } from "react-icons/md";
 import { FaRegCreditCard } from "react-icons/fa";
 import { GiProgression } from "react-icons/gi";
 import { ImProfile } from "react-icons/im";
 import { IoMdSettings } from "react-icons/io";
+import { ImBooks } from "react-icons/im";
 
 interface Props {
   sideLink: NavLinkType;
@@ -24,10 +24,10 @@ const getIcon = (iconName: string): JSX.Element | null => {
     case "dashboard":
       return <MdSpaceDashboard />;
     case "courses":
-      return <GiBookshelf />;
+      return <ImBooks />;
     case "exams":
       return <PiExamFill />;
-    case "lessons":
+    case "myCourses":
       return <MdPlayLesson />;
     case "card":
       return <FaRegCreditCard />;

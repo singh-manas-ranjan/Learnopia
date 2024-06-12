@@ -5,7 +5,7 @@ const orderByBtns = [
   },
   {
     btnName: "Sort by",
-    options: ["Ascending", "Descending"],
+    options: ["Ascending", "Descending", "Rating"],
   },
 ];
 

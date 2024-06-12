@@ -60,6 +60,8 @@ const Courses = () => {
             .sort((a, b) => {
               if (sortBy === "default") {
                 return 0;
+              } else if (sortBy === "rating") {
+                return Number(b.courseRating) - Number(a.courseRating);
               } else {
                 return sortBy === "ascending"
                   ? a.courseName.localeCompare(b.courseName)

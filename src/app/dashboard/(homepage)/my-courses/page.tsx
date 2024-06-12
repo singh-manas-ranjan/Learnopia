@@ -10,12 +10,12 @@ const main = {
   justifyContent: "center",
   alignItems: "center",
 };
-const Lessons = () => {
+const MyCourses = () => {
   return (
     <Box as="main" sx={main}>
-      <Heading>Lessons</Heading>
+      <Heading>MyCourses</Heading>
     </Box>
   );
 };
 
-export default Lessons;
+export default MyCourses;

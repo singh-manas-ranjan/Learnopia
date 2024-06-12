@@ -41,7 +41,7 @@ const LoginForm = () => {
 
   const router = useRouter();
   const onSubmit = (e: FormType) => {
-    router.push("/dashboard");
+    router.push("/home");
   };
 
   return (
