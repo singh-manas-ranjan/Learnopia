@@ -1,15 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
-import {
-  Box,
-  grid,
-  Heading,
-  List,
-  ListItem,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Heading, List, ListItem } from "@chakra-ui/react";
 import SideLink from "./sideLinks/SideLink";
 import HamMenu from "./hamMenu/HamMenu";
 interface sideBarLinks {
@@ -37,7 +29,7 @@ const sideLinkContainer = {
   display: "flex",
   flexDirection: "column",
   rowGap: "2rem",
-  padding: "1rem",
+  // padding: "1rem",
   height: "100vh",
   borderRadius: "8px",
   color: "#242424",
@@ -47,6 +39,8 @@ const sideLinkContainer = {
 const navLinksContainer = {
   display: "grid",
   rowGap: "1rem",
+  padding: "1rem",
+  mt: "30px",
 };
 
 const sectionContainer = {
@@ -79,21 +73,37 @@ const Sidebar = () => {
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setMenuOpen(true);
+  };
+  const handleMouseExit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setMenuOpen(false);
+  };
+
   return (
     <Box sx={sideLinkContainer}>
-      <Box sx={menuOpen ? "" : collapsedLogo}>
-        {menuOpen ? (
-          <Heading sx={logo} display={"flex"} justifyContent={"center"}>
-            Learnopia
-          </Heading>
-        ) : (
-          <Heading sx={logo}>L</Heading>
-        )}
+      <Box p={"1rem"}>
+        <Box sx={menuOpen ? "" : collapsedLogo}>
+          {menuOpen ? (
+            <Heading sx={logo} display={"flex"} justifyContent={"center"}>
+              Learnopia
+            </Heading>
+          ) : (
+            <Heading sx={logo}>L</Heading>
+          )}
+        </Box>
       </Box>
-      <Box>
+      <Box display={"none"}>
         <HamMenu handleClickMenu={handleMenuClick} isMenuOpen={menuOpen} />
       </Box>
-      <Box sx={navLinksContainer}>
+      <Box
+        sx={navLinksContainer}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseExit}
+      >
         {Object.keys(navLinks).map((key, idx) => (
           <Box key={idx} sx={sectionContainer}>
             {/* {menuOpen && (

@@ -16,8 +16,7 @@ const DashBoardLayout = ({ children }: Props) => {
   };
 
   const menuContainer = {
-    // flex: "1",
-    padding: "1rem",
+    paddingRight: "1rem",
     h: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -29,7 +28,7 @@ const DashBoardLayout = ({ children }: Props) => {
     flexDirection: "column",
     h: "100vh",
     rowGap: "1rem",
-    padding: "1rem 1rem 1rem 0",
+    // padding: "1rem 1rem 1rem 0",
   };
 
   return (
