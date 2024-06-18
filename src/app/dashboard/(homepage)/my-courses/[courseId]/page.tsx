@@ -1,37 +1,30 @@
 import React from "react";
-import CourseDetails from "@/app/ui/dashboard/courseDetails/CourseDetails";
-import { Box, Heading } from "@chakra-ui/react";
 import coursesList from "../../../../../../public/courses";
-
+import { Text } from "@chakra-ui/react";
+import VideoPlayerComponent from "@/app/ui/dashboard/enrolledCoursesContainer/myCoursesCard/videoPlayer/VideoPlayerComponent";
 interface Props {
-  params: { "course-id": string };
+  params: { courseId: string };
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
 }
 
-const ParticularCourse = ({ params }: Props) => {
-  const courseId = atob(params["course-id"]);
+const videoLinks = [
+  "https://www.youtube.com/watch?v=qz0aGYrrlhU",
+  "https://www.youtube.com/watch?v=HD13eq_Pmp8",
+  "https://www.youtube.com/watch?v=FQdaUv95mR8",
+];
+
+const VideoPlayer = ({ params, searchParams }: Props) => {
+  const courseId = atob(params.courseId);
   const course = coursesList.find((course) => course.courseId === courseId);
+  const selectedLecture = (videoLinks[Number(searchParams.lecture) - 1] ||
+    course?.courseLink) as string;
 
-  const main = {
-    width: "100%",
-    height: "90vh",
-    bg: "#fff",
-    borderRadius: "4px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "1rem",
-    overflow: "hidden",
-  };
-
-  return (
-    <Box as="main" sx={main}>
-      {course ? (
-        <CourseDetails course={course} />
-      ) : (
-        <Heading>{`No Course Fount With Id: ${courseId}`}</Heading>
-      )}
-    </Box>
-  );
+  if (!selectedLecture) {
+    return <Text>No video selected or available.</Text>;
+  }
+  return <VideoPlayerComponent url={selectedLecture} />;
 };
 
-export default ParticularCourse;
+export default VideoPlayer;

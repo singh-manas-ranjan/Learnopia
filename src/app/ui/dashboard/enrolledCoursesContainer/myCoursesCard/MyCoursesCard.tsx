@@ -8,8 +8,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { Course } from "../../../../../public/courses";
 import Link from "next/link";
+import { Course } from "../../../../../../public/courses";
 
 interface Props {
   course: Course;
@@ -18,7 +18,7 @@ interface Props {
 const MyCoursesCard = ({ course }: Props) => {
   return (
     <Link href={`/dashboard/my-courses/${btoa(course.courseId)}`}>
-      <Card h={"320px"}>
+      <Card>
         <CardHeader h={"60%"}>
           <Image
             src={`/${course.courseImg}`}
