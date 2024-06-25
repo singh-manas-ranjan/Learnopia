@@ -8,18 +8,16 @@ import {
   Flex,
   Grid,
   Heading,
-  SimpleGrid,
   Text,
   WrapItem,
+  Image,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
-import coursesList from "../../../public/courses";
-import CourseCard from "../ui/dashboard/courseCard/CourseCard";
 import Barchart from "../ui/dashboard/barchart/Barchart";
 import studentRankings from "../../../public/rankingData";
+import DashBoardCourses from "../ui/dashboard/dashboardCourses/DashBoardCourses";
 
 const main = {
   width: "100%",
@@ -33,21 +31,37 @@ const main = {
 const Dashboard = () => {
   return (
     <Box as="main" sx={main}>
-      <Flex w={"100%"} h={"100%"}>
+      <Box
+        w={"100%"}
+        h={"100%"}
+        display={"flex"}
+        flexDirection={{ base: "column", lg: "row" }}
+        overflowY={"scroll"}
+      >
         <Flex flex={6} flexDirection={"column"} p={"1rem"} rowGap={10}>
           <Box
-            flex={5}
+            flex={{ lg: 5 }}
             borderRadius={8}
             bgColor={"#2D89BA"}
             position={"relative"}
             overflow={"hidden"}
-            display={"flex"}
           >
-            <Flex flexDir={"column"} p={"1rem"} color={"#fff"}>
-              <Grid w={"55%"} p={".5rem"} rowGap={5}>
-                <Grid rowGap={6}>
-                  <Heading>New Exams available Now!</Heading>
-                  <Text lineHeight={"1.7rem"}>
+            <Flex p={"1rem"} color={"#fff"}>
+              <Flex
+                flexDirection={"column"}
+                w={{ base: "100%", md: "60%" }}
+                p={".5rem"}
+                h={"fit-content"}
+                rowGap={5}
+              >
+                <Grid rowGap={3}>
+                  <Heading fontSize={{ base: "2xl", lg: "2xl", xl: "3xl" }}>
+                    New Exams available Now!
+                  </Heading>
+                  <Text
+                    lineHeight={{ sm: "1.3rem", md: "1.7rem" }}
+                    fontSize={{ base: "sm", md: "md", xl: "lg" }}
+                  >
                     Welcome to our new exam to attend and check your results how
                     long are you practice for your papers, we provide the best
                     service for every one this platform boost your confidence.
@@ -63,14 +77,18 @@ const Dashboard = () => {
                 >
                   Explore More <FaAngleRight size={18} />
                 </Button>
-              </Grid>
+              </Flex>
             </Flex>
-            <Box position={"absolute"} right={8} bottom={-3}>
+            <Box
+              position={"absolute"}
+              right={{ md: -5, xl: 8 }}
+              bottom={{ md: -3 }}
+              display={{ base: "none", md: "grid" }}
+            >
               <Image
                 alt="teacher-avatar"
                 src={"/teacher.png"}
-                width={290}
-                height={240}
+                width={{ md: 250 }}
               />
             </Box>
           </Box>
@@ -94,24 +112,7 @@ const Dashboard = () => {
                   View All
                 </Link>
               </Flex>
-              <Box overflowY={"scroll"} h={"100%"} w={"100%"}>
-                {" "}
-                <SimpleGrid
-                  spacing={4}
-                  templateColumns="repeat(4, 1fr)"
-                  p={".5rem"}
-                >
-                  {coursesList
-                    .filter((course) => Number(course.courseRating) >= 4.5)
-                    .sort((a, b) => {
-                      return Number(b.courseRating) - Number(a.courseRating);
-                    })
-                    .splice(0, 4)
-                    .map((course, idx) => (
-                      <CourseCard key={idx} course={course} />
-                    ))}
-                </SimpleGrid>
-              </Box>
+              <DashBoardCourses />
             </Flex>
           </Box>
         </Flex>
@@ -154,7 +155,11 @@ const Dashboard = () => {
                                 name={student.name}
                                 src={student.imageSrc}
                               />
-                              <Text m={2} ml={5}>
+                              <Text
+                                m={2}
+                                ml={5}
+                                fontSize={{ base: "sm", xl: "md" }}
+                              >
                                 {student.name}
                               </Text>
                             </WrapItem>
@@ -178,7 +183,7 @@ const Dashboard = () => {
             <Barchart />
           </Box>
         </Flex>
-      </Flex>
+      </Box>
     </Box>
   );
 };

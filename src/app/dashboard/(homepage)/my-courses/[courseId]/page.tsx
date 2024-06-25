@@ -1,5 +1,5 @@
 import React from "react";
-import coursesList from "../../../../../../public/courses";
+import coursesList, { Course } from "../../../../../../public/courses";
 import { Text } from "@chakra-ui/react";
 import VideoPlayerComponent from "@/app/ui/dashboard/enrolledCoursesContainer/myCoursesCard/videoPlayer/VideoPlayerComponent";
 interface Props {
@@ -9,17 +9,18 @@ interface Props {
   };
 }
 
-const videoLinks = [
-  "https://www.youtube.com/watch?v=qz0aGYrrlhU",
-  "https://www.youtube.com/watch?v=HD13eq_Pmp8",
-  "https://www.youtube.com/watch?v=FQdaUv95mR8",
-];
-
 const VideoPlayer = ({ params, searchParams }: Props) => {
   const courseId = atob(params.courseId);
-  const course = coursesList.find((course) => course.courseId === courseId);
-  const selectedLecture = (videoLinks[Number(searchParams.lecture) - 1] ||
-    course?.courseLink) as string;
+  const sectionNo = Number(searchParams.section) - 1;
+  const lectureNo = Number(searchParams.lecture) - 1;
+  const course: Course | undefined = coursesList.find(
+    (course) => course.courseId === courseId
+  );
+  const lectureVideos: string[] = course?.courseIndex
+    ? course.courseIndex[sectionNo]?.videoLinks
+    : [];
+  const selectedLecture =
+    course && lectureVideos ? lectureVideos[lectureNo] : course?.courseLink;
 
   if (!selectedLecture) {
     return <Text>No video selected or available.</Text>;

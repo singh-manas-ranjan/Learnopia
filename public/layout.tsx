@@ -28,12 +28,12 @@ import { BsShare, BsBookmarkDash } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
 
 interface Props {
-  params: { courseId: string };
+  params: { "course-id": string };
   children: ReactNode;
 }
 
 const ParticularCourseLayout = ({ params, children }: Props) => {
-  const courseId = atob(params.courseId);
+  const courseId = atob(params["course-id"]);
   const course = coursesList.find((course) => course.courseId === courseId);
 
   const main = {

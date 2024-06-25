@@ -16,31 +16,44 @@ interface Props {
   course: Course;
 }
 
+const textStyle = {
+  fontSize: { base: "sm" },
+};
+
 const CourseCard = ({ course }: Props) => {
   return (
-    <Card h={"410px"}>
-      <CardHeader h={"40%"}>
+    <Card h={{ sm: "370px", lg: "350px" }}>
+      <CardHeader h={{ base: "210px", md: "fit-content" }}>
         <Image
           src={`/${course.courseImg}`}
           alt={course.courseName}
           borderRadius="lg"
           w={"100%"}
+          h={"100%"}
         />
       </CardHeader>
-      <CardBody display={"grid"}>
-        <Heading size="md" h={"75px"}>
-          {course.courseName}
-        </Heading>
+      <CardBody
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"space-between"}
+        paddingBlock={0}
+      >
+        <Heading size={{ base: "sm" }}>{course.courseName}</Heading>
         <Grid>
-          <Text>{course.author}</Text>
-          <Text>{course.courseRating}</Text>
-          <Text color="blue.600">
+          <Text sx={textStyle}>{course.author}</Text>
+          <Text sx={textStyle}>{course.courseRating}</Text>
+          <Text color="blue.600" sx={textStyle}>
             {course.coursePrice ? course.coursePrice : "Free"}
           </Text>
         </Grid>
       </CardBody>
-      <CardFooter h={"15%"} display={"flex"} alignItems={"flex-end"}>
-        <EnrollBtn courseId={course.courseId} />
+      <CardFooter
+        display={"flex"}
+        alignItems={"flex-end"}
+        paddingTop={2}
+        paddingBottom={5}
+      >
+        <EnrollBtn course={course} />
       </CardFooter>
     </Card>
   );

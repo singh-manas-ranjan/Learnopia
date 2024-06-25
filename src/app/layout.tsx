@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ weight: "600", subsets: ["latin"] });
 
-import { Providers } from "./providers";
+import { ChakraProviders } from "./ChakraProviders";
+import StoreProvider from "./StoreProvider";
 
 export default function RootLayout({
   children,
@@ -16,7 +16,9 @@ export default function RootLayout({
         <title>Learnopia</title>
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <ChakraProviders>
+          <StoreProvider>{children}</StoreProvider>
+        </ChakraProviders>
       </body>
     </html>
   );

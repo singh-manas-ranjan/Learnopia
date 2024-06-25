@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Button,
@@ -9,12 +10,14 @@ import {
   MenuItem,
   MenuList,
   textDecoration,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import { IoIosNotifications } from "react-icons/io";
 import { TbLogout2 } from "react-icons/tb";
 import { FaHandsClapping } from "react-icons/fa6";
+import HamMenu from "../sidebar/hamMenu/HamMenu";
 
 const nav = {
   bg: "#fff",
@@ -65,12 +68,16 @@ const rightNav = {
 };
 
 const Navbar = () => {
+  const [minWidth600] = useMediaQuery("(min-width: 600px)");
   return (
     <Flex sx={nav}>
-      <Text display={"flex"} color={"#044F63"}>
+      <Text display={{ base: "none", md: "flex" }} color={"#044F63"}>
         Welcome Back{" "}
         <FaHandsClapping color="orange" style={{ marginLeft: ".5rem" }} />{" "}
       </Text>
+      <Box display={{ md: "none" }}>
+        <HamMenu />
+      </Box>
       <Flex sx={rightNav}>
         <Menu>
           <Flex sx={notificationContainer}>
@@ -89,7 +96,7 @@ const Navbar = () => {
                 alt="user"
                 style={{ borderRadius: "50%" }}
               />{" "}
-              <Text>example@user.in</Text>
+              {minWidth600 && <Text>example@user.in</Text>}
             </Box>
           </MenuButton>
           <MenuList

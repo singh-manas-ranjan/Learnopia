@@ -28,7 +28,7 @@ const MyCoursesCard = ({ course }: Props) => {
           />
         </CardHeader>
         <CardBody display={"flex"} flexDir={"column"} rowGap={3} pt={0}>
-          <Heading size="md" h={"75px"}>
+          <Heading size={{ sm: "sm" }} h={"75px"}>
             {course.courseName}
           </Heading>
           <Flex justifyContent={"space-between"}>

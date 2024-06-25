@@ -51,8 +51,12 @@ const Courses = () => {
       <Box overflowY={"scroll"} w={"100%"} h={"100%"}>
         <SimpleGrid
           spacing={5}
-          templateColumns="repeat(5, 1fr)"
-          w={"100%"}
+          templateColumns={{
+            base: "repeat(auto-fill, minmax(200px, 1fr))",
+            sm: "repeat(auto-fill, minmax(220px, 1fr))",
+            xl: "repeat(auto-fill, minmax(250px, 1fr))",
+          }}
+          // w={"100%"}
           justifyContent={"center"}
           paddingBlock={".5rem"}
         >
