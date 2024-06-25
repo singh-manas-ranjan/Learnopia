@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
-import { Box, Heading, List, ListItem } from "@chakra-ui/react";
+import { Box, Heading, List, ListItem, useMediaQuery } from "@chakra-ui/react";
 import SideLink from "./sideLinks/SideLink";
 import HamMenu from "./hamMenu/HamMenu";
 interface sideBarLinks {
@@ -49,11 +49,6 @@ const sectionContainer = {
   rowGap: "1rem",
 };
 
-// const sectionHeading = {
-//   fontWeight: "bold",
-//   fontSize: "1.2rem",
-// };
-
 const list = {
   display: "flex",
   flexDirection: "column",
@@ -69,6 +64,7 @@ const listItems = {
 };
 
 const Sidebar = () => {
+  const [minWidth480] = useMediaQuery("(min-width: 481px)");
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
@@ -84,42 +80,41 @@ const Sidebar = () => {
   };
 
   return (
-    <Box sx={sideLinkContainer}>
-      <Box p={"1rem"}>
-        <Box sx={menuOpen ? "" : collapsedLogo}>
-          {menuOpen ? (
-            <Heading sx={logo} display={"flex"} justifyContent={"center"}>
-              Learnopia
-            </Heading>
-          ) : (
-            <Heading sx={logo}>L</Heading>
-          )}
-        </Box>
-      </Box>
-      <Box display={"none"}>
-        <HamMenu handleClickMenu={handleMenuClick} isMenuOpen={menuOpen} />
-      </Box>
-      <Box
-        sx={navLinksContainer}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseExit}
-      >
-        {Object.keys(navLinks).map((key, idx) => (
-          <Box key={idx} sx={sectionContainer}>
-            {/* {menuOpen && (
-              <Text sx={sectionHeading}>{key.replace("_", " ")}</Text>
-            )} */}
-            <List sx={list}>
-              {navLinks[key].map((sideLink, idx) => (
-                <ListItem key={idx} sx={listItems}>
-                  <SideLink sideLink={sideLink} isOpen={menuOpen} />
-                </ListItem>
-              ))}
-            </List>
+    <>
+      {minWidth480 && (
+        <Box sx={sideLinkContainer}>
+          <Box p={"1rem"}>
+            <Box sx={menuOpen ? "" : collapsedLogo}>
+              {menuOpen ? (
+                <Heading sx={logo} display={"flex"} justifyContent={"center"}>
+                  Learnopia
+                </Heading>
+              ) : (
+                <Heading sx={logo}>L</Heading>
+              )}
+            </Box>
           </Box>
-        ))}
-      </Box>
-    </Box>
+
+          <Box
+            sx={navLinksContainer}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseExit}
+          >
+            {Object.keys(navLinks).map((key, idx) => (
+              <Box key={idx} sx={sectionContainer}>
+                <List sx={list}>
+                  {navLinks[key].map((sideLink, idx) => (
+                    <ListItem key={idx} sx={listItems}>
+                      <SideLink sideLink={sideLink} isOpen={menuOpen} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      )}
+    </>
   );
 };
 
