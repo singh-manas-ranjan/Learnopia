@@ -22,10 +22,10 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import coursesList from "../../../../../../public/courses";
 import Link from "next/link";
 import { BsShare, BsBookmarkDash } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
+import coursesList from "../../../../../../public/courses";
 
 interface Props {
   params: { courseId: string };
