@@ -9,8 +9,9 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  textDecoration,
   useMediaQuery,
+  List,
+  ListItem,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -18,6 +19,12 @@ import { IoIosNotifications } from "react-icons/io";
 import { TbLogout2 } from "react-icons/tb";
 import { FaHandsClapping } from "react-icons/fa6";
 import HamMenu from "../sidebar/hamMenu/HamMenu";
+import { useAppSelector } from "@/app/hooks/reduxHooks";
+import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
+import { getIcon } from "../sidebar/sideLinks/SideLink";
+import { usePathname } from "next/navigation";
+import NextLink from "next/link";
+import styles from "./Navbar.module.css";
 
 const nav = {
   bg: "#fff",
@@ -67,16 +74,25 @@ const rightNav = {
   alignItems: "center",
 };
 
+interface sideBarLinks {
+  [key: string]: NavLinkType[];
+}
+
+const navLinks: sideBarLinks = sidebarLinks;
+
 const Navbar = () => {
+  const pathname = usePathname();
   const [minWidth600] = useMediaQuery("(min-width: 600px)");
+  const [maxWidth481] = useMediaQuery("(max-width: 481px)");
+  const isMenuOpen = useAppSelector((state) => state.sideBar.isOpen);
   return (
-    <Flex sx={nav}>
+    <Flex sx={nav} position={"relative"}>
       <Text display={{ base: "none", md: "flex" }} color={"#044F63"}>
         Welcome Back{" "}
         <FaHandsClapping color="orange" style={{ marginLeft: ".5rem" }} />{" "}
       </Text>
       <Box display={{ md: "none" }}>
-        <HamMenu />
+        {maxWidth481 && <HamMenu isMenuOpen={isMenuOpen} />}
       </Box>
       <Flex sx={rightNav}>
         <Menu>
@@ -122,6 +138,43 @@ const Navbar = () => {
           </MenuList>
         </Menu>
       </Flex>
+      {maxWidth481 && (
+        <Box
+          position={"absolute"}
+          left={0}
+          top={"126%"}
+          zIndex={"9"}
+          bg={"#ffffff"}
+          padding={"1rem"}
+          className={isMenuOpen ? styles.open : styles.close}
+        >
+          {Object.keys(navLinks).map((key, idx) => (
+            <List
+              key={idx}
+              display={"flex"}
+              flexDirection={"column"}
+              rowGap={2}
+              className={isMenuOpen ? styles.listOpen : styles.listClose}
+            >
+              {navLinks[key].map((sideLink, idx) => (
+                <ListItem key={idx}>
+                  <NextLink
+                    href={sideLink.link}
+                    className={
+                      pathname === sideLink.link
+                        ? [styles.link, styles.active].join(" ")
+                        : styles.link
+                    }
+                  >
+                    <Box>{getIcon(sideLink.icon)}</Box>
+                    <Box fontSize={"sm"}>{sideLink.name}</Box>
+                  </NextLink>
+                </ListItem>
+              ))}
+            </List>
+          ))}
+        </Box>
+      )}
     </Flex>
   );
 };

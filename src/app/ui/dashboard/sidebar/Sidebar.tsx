@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
 import { Box, Heading, List, ListItem, useMediaQuery } from "@chakra-ui/react";
 import SideLink from "./sideLinks/SideLink";
-import HamMenu from "./hamMenu/HamMenu";
+import { useAppDispatch, useAppSelector } from "@/app/hooks/reduxHooks";
+import { onMouseEnter, onMouseExit } from "@/lib/features/sideBar/sideBarSlice";
 interface sideBarLinks {
   [key: string]: NavLinkType[];
 }
@@ -65,18 +66,16 @@ const listItems = {
 
 const Sidebar = () => {
   const [minWidth480] = useMediaQuery("(min-width: 481px)");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const handleMenuClick = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const dispatch = useAppDispatch();
+  const menuOpen = useAppSelector((state) => state.sideBar.isOpen);
 
   const handleMouseEnter = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    setMenuOpen(true);
+    dispatch(onMouseEnter());
   };
   const handleMouseExit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setMenuOpen(false);
+    dispatch(onMouseExit());
   };
 
   return (

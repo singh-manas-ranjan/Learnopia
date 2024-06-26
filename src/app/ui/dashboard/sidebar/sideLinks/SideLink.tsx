@@ -19,7 +19,7 @@ interface Props {
   isOpen: boolean;
 }
 
-const getIcon = (iconName: string): JSX.Element | null => {
+export const getIcon = (iconName: string): JSX.Element | null => {
   switch (iconName) {
     case "dashboard":
       return <MdSpaceDashboard />;
