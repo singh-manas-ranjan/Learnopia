@@ -60,9 +60,9 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
     transition: "all .1s linear",
   };
 
-  // const textFontSize = {
-  //   fontSize: { base: "sm", lg: "md" },
-  // };
+  const textFontSize = {
+    fontSize: "sm",
+  };
 
   return (
     <Box as="main" sx={main}>
@@ -94,7 +94,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                   </Box>
                 </Flex>
               </Flex>
-              <Text as={"h5"} fontSize={{ base: "sm", lg: "md" }}>
+              <Text as={"h5"} sx={textFontSize}>
                 {course.author}
               </Text>
               <Box overflowY={"scroll"} w={"100%"} h={"100%"} mt={5}>
@@ -116,23 +116,23 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 <Box mt={5} width={"100%"}>
                   <Tabs height={"fit-content"}>
                     <TabList overflowX={"scroll"}>
-                      <Tab fontSize={{ base: "sm", lg: "md" }}>Description</Tab>
-                      <Tab fontSize={{ base: "sm", lg: "md" }}>Reviews</Tab>
-                      <Tab fontSize={{ base: "sm", lg: "md" }}>Discussion</Tab>
-                      <Tab fontSize={{ base: "sm", lg: "md" }}>Resource</Tab>
-                      <Tab fontSize={{ base: "sm", lg: "md" }}>Instructor</Tab>
+                      <Tab sx={textFontSize}>Description</Tab>
+                      <Tab sx={textFontSize}>Reviews</Tab>
+                      <Tab sx={textFontSize}>Discussion</Tab>
+                      <Tab sx={textFontSize}>Resource</Tab>
+                      <Tab sx={textFontSize}>Instructor</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "65%" }}>
-                          <Text fontSize={{ base: "sm", lg: "md" }}>
+                          <Text sx={textFontSize}>
                             The Google Project Management Certificate introduces
                             learners to project management fundamentals
                             including various approaches, tools and templates,
                             goal-setting, risk management, team dynamics, and
                             data-driven decision making.
                           </Text>
-                          <Text mt={5} fontSize={{ base: "sm", lg: "md" }}>
+                          <Text mt={5} sx={textFontSize}>
                             The program, created by Google employees in the
                             field, is designed to provide you with job-ready
                             skills in about 6 months to start or advance your
@@ -142,12 +142,12 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                       </TabPanel>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "65%" }}>
-                          <Text fontSize={{ base: "sm", lg: "md" }}>
+                          <Text sx={textFontSize}>
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Id fugit deleniti ex tenetur quaerat ab
                             tempore, culpa incidunt? Eum, exercitationem.
                           </Text>
-                          <Text fontSize={{ base: "sm", lg: "md" }} mt={5}>
+                          <Text sx={textFontSize} mt={5}>
                             Project management is so important to organizations
                             and teams, but in order for it to be really
                             effective, you need to make sure you&apos;re
@@ -159,14 +159,14 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                       </TabPanel>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "65%" }}>
-                          <Text fontSize={{ base: "sm", lg: "md" }}>
+                          <Text sx={textFontSize}>
                             Lorem ipsum dolor, sit amet consectetur adipisicing
                             elit. Nihil tempora optio repudiandae enim nemo
                             officiis sed, quis molestias odit beatae nobis,
                             ipsum repellendus laudantium sequi error mollitia
                             reprehenderit veniam amet.
                           </Text>
-                          <Text fontSize={{ base: "sm", lg: "md" }} mt={5}>
+                          <Text sx={textFontSize} mt={5}>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Commodi, recusandae, consectetur voluptates
                             ipsam cum dolorum suscipit nemo perferendis placeat,
@@ -180,12 +180,12 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                       </TabPanel>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "65%" }}>
-                          <Text fontSize={{ base: "sm", lg: "md" }}>
+                          <Text sx={textFontSize}>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Deleniti, impedit! Iste tempore quos id,
                             corporis repudiandae consequatur nulla nemo sint!
                           </Text>
-                          <Text fontSize={{ base: "sm", lg: "md" }} mt={5}>
+                          <Text sx={textFontSize} mt={5}>
                             Project management is so important to organizations
                             and teams, but in order for it to be really
                             effective, you need to make sure you&apos;re
@@ -197,7 +197,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                       </TabPanel>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "65%" }}>
-                          <Text fontSize={{ base: "sm", lg: "md" }}>
+                          <Text sx={textFontSize}>
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Laborum, incidunt cupiditate, ipsa magni
                             corporis, dolorem porro magnam harum unde iste nisi
@@ -215,7 +215,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                             incidunt repudiandae. Voluptatem error quaerat
                             praesentium vitae.
                           </Text>
-                          <Text fontSize={{ base: "sm", lg: "md" }} mt={5}>
+                          <Text sx={textFontSize} mt={5}>
                             Project management is so important to organizations
                             and teams, but in order for it to be really
                             effective, you need to make sure you&apos;re
@@ -262,12 +262,8 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                                 src="https://bit.ly/dan-abramov"
                               />
                               <Box display={"grid"}>
-                                <Text fontSize={{ base: "sm", lg: "md" }}>
-                                  {course.author}
-                                </Text>
-                                <Text fontSize={{ base: "sm", lg: "md" }}>
-                                  PM Expert
-                                </Text>
+                                <Text sx={textFontSize}>{course.author}</Text>
+                                <Text sx={textFontSize}>PM Expert</Text>
                               </Box>
                             </WrapItem>
                           </Wrap>
@@ -277,7 +273,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                   </AccordionItem>
                 </Accordion>
                 <Box paddingInline={6}>
-                  <Text paddingInline={4} fontSize={{ base: "sm", lg: "md" }}>
+                  <Text paddingInline={4} sx={textFontSize}>
                     This course is designed to help you for your practical day
                     to day project management, to improve your project
                     management knowledge
@@ -306,7 +302,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                     <AccordionItem key={index} borderRadius={4}>
                       <h2>
                         <AccordionButton
-                          h={"50px"}
+                          h={"4rem"}
                           borderRadius={4}
                           display={"flex"}
                           columnGap={3}
@@ -316,7 +312,8 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                             as="span"
                             flex="1"
                             textAlign="left"
-                            fontSize={"sm"}
+                            sx={textFontSize}
+                            h={"fit-content"}
                           >
                             {`Section ${index + 1} - ${
                               courseDetails.sectionName
@@ -336,7 +333,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                           >
                             <AccordionButton display={"flex"} columnGap={3}>
                               <MdOndemandVideo size={25} />
-                              <Text fontSize={"sm"} textAlign={"start"}>
+                              <Text sx={textFontSize} textAlign={"start"}>
                                 {lecture}
                               </Text>
                             </AccordionButton>
