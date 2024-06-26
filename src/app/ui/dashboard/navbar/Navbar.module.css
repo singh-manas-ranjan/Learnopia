@@ -23,7 +23,7 @@
   width: 60%;
   height: 100vh;
   visibility: visible;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .close,
@@ -31,12 +31,12 @@
   width: 0%;
   overflow: hidden;
   visibility: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .listOpen {
   width: 100%;
   visibility: visible;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }

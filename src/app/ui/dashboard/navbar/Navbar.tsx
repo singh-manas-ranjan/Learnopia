@@ -87,7 +87,7 @@ const Navbar = () => {
   const isMenuOpen = useAppSelector((state) => state.sideBar.isOpen);
   return (
     <Flex sx={nav} position={"relative"}>
-      <Text display={{ base: "none", md: "flex" }} color={"#044F63"}>
+      <Text display={{ base: "none", sm: "flex" }} color={"#044F63"}>
         Welcome Back{" "}
         <FaHandsClapping color="orange" style={{ marginLeft: ".5rem" }} />{" "}
       </Text>
