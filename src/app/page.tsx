@@ -1,22 +1,15 @@
 "use client";
-import Image from "next/image";
-import styles from "./page.module.css";
-import { Link } from "@chakra-ui/next-js";
 import { MdStart } from "react-icons/md";
 import { LiaSignInAltSolid } from "react-icons/lia";
 import {
   Box,
   Button,
-  Container,
   Flex,
   Heading,
   HStack,
-  List,
-  ListItem,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { MdTitle } from "react-icons/md";
 
 export default function Page() {
   const mainStyle = {
@@ -29,22 +22,6 @@ export default function Page() {
     paddingInline: "2rem",
     justifyContent: "space-between",
     alignItems: "center",
-  };
-
-  const list = {
-    display: "flex",
-    w: "15%",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingBlock: "1rem",
-  };
-
-  const listItem = {
-    w: "100px",
-    display: "grid",
-    placeItems: "center",
-    outline: ".1px solid black",
-    p: 0,
   };
 
   const btnStyle = {
@@ -69,7 +46,7 @@ export default function Page() {
     >
       <Flex as="nav" sx={navStyle}>
         <Text
-          fontSize={"xx-large"}
+          fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
           fontWeight={"bold"}
           padding={"1rem"}
           color={"#044F63"}
@@ -83,23 +60,37 @@ export default function Page() {
         left={"5%"}
         p={"1rem"}
         spacing={5}
-        width={"32%"}
+        width={{ base: "80%", sm: "60%", md: "42%", xl: "32%" }}
         alignItems={"left"}
         color={"#044F63"}
       >
-        <Heading as={"h1"} size={"xl"} width={"80%"}>
+        <Heading as={"h1"} fontSize={{ base: "xl", md: "2xl" }} width={"80%"}>
           Unleashing The Power of <Text as={"u"}>Learning</Text> Potential
         </Heading>
-        <Heading as={"h3"} size={"md"} lineHeight={"1.8rem"}>
+        <Heading
+          as={"h3"}
+          fontSize={{ base: "lg", lg: "xl" }}
+          lineHeight={"1.8rem"}
+        >
           Ignite your passion for learning, explore limitless possibilities, and
           shape your educational destiny with our innovative and student-centric
           online platform.
         </Heading>
         <HStack spacing={5}>
-          <Button as={"a"} href="/login" sx={btnStyle}>
+          <Button
+            as={"a"}
+            href="/login"
+            sx={btnStyle}
+            size={{ base: "sm", md: "md" }}
+          >
             Login <LiaSignInAltSolid size={20} />
           </Button>
-          <Button as={"a"} href="/register" sx={btnStyle}>
+          <Button
+            as={"a"}
+            href="/register"
+            sx={btnStyle}
+            size={{ base: "sm", md: "md" }}
+          >
             Register <MdStart size={20} />
           </Button>
         </HStack>
