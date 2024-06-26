@@ -8,19 +8,19 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const DashBoardCourses = () => {
-  const [isLargerThan769] = useMediaQuery("(min-width: 769px)", {
+  const [isLargerThan990] = useMediaQuery("(min-width: 990px)", {
     ssr: true,
     fallback: false,
   });
 
   const responsive = {
     tablet: {
-      breakpoint: { max: 769, min: 764 },
+      breakpoint: { max: 989, min: 570 },
       items: 2,
     },
     midMobile: {
-      breakpoint: { max: 764, min: 520 },
-      items: 2,
+      breakpoint: { max: 569, min: 521 },
+      items: 1,
     },
     mobile: {
       breakpoint: { max: 520, min: 0 },
@@ -30,7 +30,7 @@ const DashBoardCourses = () => {
 
   return (
     <>
-      {isLargerThan769 ? (
+      {isLargerThan990 ? (
         <Box overflowY={"scroll"} h={"100%"} w={"100%"}>
           {" "}
           <SimpleGrid
