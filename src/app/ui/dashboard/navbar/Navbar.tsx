@@ -141,7 +141,6 @@ const Navbar = () => {
       {maxWidth481 && (
         <Box
           position={"absolute"}
-          left={0}
           top={"126%"}
           zIndex={"9"}
           bg={"#ffffff"}
@@ -153,8 +152,7 @@ const Navbar = () => {
               key={idx}
               display={"flex"}
               flexDirection={"column"}
-              rowGap={2}
-              className={isMenuOpen ? styles.listOpen : styles.listClose}
+              rowGap={2.5}
             >
               {navLinks[key].map((sideLink, idx) => (
                 <ListItem key={idx}>
@@ -167,7 +165,9 @@ const Navbar = () => {
                     }
                   >
                     <Box>{getIcon(sideLink.icon)}</Box>
-                    <Box fontSize={"sm"}>{sideLink.name}</Box>
+                    <Box fontSize={"sm"} width={"100%"}>
+                      {sideLink.name}
+                    </Box>
                   </NextLink>
                 </ListItem>
               ))}

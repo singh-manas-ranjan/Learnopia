@@ -46,7 +46,8 @@ const OrderByBtn = ({
         display={"flex"}
         alignItems={"center"}
         borderColor={"#A0AEC0"}
-        w={120}
+        // w={120}
+        size={{ base: "sm", lg: "md" }}
       >
         <Text
           display={"flex"}
