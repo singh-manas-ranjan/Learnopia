@@ -19,7 +19,7 @@ const DashBoardCourses = () => {
       items: 2,
     },
     midMobile: {
-      breakpoint: { max: 569, min: 521 },
+      breakpoint: { max: 764, min: 520 },
       items: 2,
     },
     mobile: {
