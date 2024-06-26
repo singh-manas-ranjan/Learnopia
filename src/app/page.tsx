@@ -39,12 +39,12 @@ export default function Page() {
     <Box
       as="main"
       sx={mainStyle}
-      bgImage={"url('/bgImg.png')"}
+      bgImage={{ base: "url('/bgImg.jpg')" }}
       backgroundSize={"cover"}
-      backgroundPosition={"top"}
+      backgroundPosition={{ base: "center" }}
       backgroundRepeat={"no-repeat"}
     >
-      <Flex as="nav" sx={navStyle}>
+      <Flex as="nav" sx={navStyle} boxShadow={"0 2px 2px -2px gray"}>
         <Text
           fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
           fontWeight={"bold"}
@@ -56,21 +56,21 @@ export default function Page() {
       </Flex>
       <VStack
         position={"absolute"}
-        top={"30%"}
+        top={{ base: "10%", sm: "20%" }}
         left={"5%"}
         p={"1rem"}
         spacing={5}
-        width={{ base: "80%", sm: "60%", md: "42%", xl: "32%" }}
+        width={{ base: "90%", sm: "60%", md: "42%", xl: "32%" }}
         alignItems={"left"}
         color={"#044F63"}
       >
-        <Heading as={"h1"} fontSize={{ base: "xl", md: "2xl" }} width={"80%"}>
+        <Heading as={"h1"} fontSize={{ base: "xl", md: "2xl" }} width={"100%"}>
           Unleashing The Power of <Text as={"u"}>Learning</Text> Potential
         </Heading>
         <Heading
           as={"h3"}
-          fontSize={{ base: "lg", lg: "xl" }}
-          lineHeight={"1.8rem"}
+          fontSize={{ base: "md", lg: "xl" }}
+          lineHeight={{ md: "1.8rem" }}
         >
           Ignite your passion for learning, explore limitless possibilities, and
           shape your educational destiny with our innovative and student-centric

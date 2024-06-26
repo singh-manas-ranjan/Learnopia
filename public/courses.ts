@@ -384,12 +384,52 @@ const coursesList = [
   },
   {
     courseId: "MN6D9T",
-    courseName: "Internet and Web Development Fundamentals",
-    author: "YouAccel Training",
-    courseRating: "4.3",
+    courseName: "Appium Mobile Automation",
+    author: "Ompraksh Chavan",
+    courseRating: "4.7",
     courseImg: "card6.jpeg",
-    isPaidCourse: false,
-    courseLink: "https://www.youtube.com/embed/lkO8wbL1zxM?si=cH-6ChW8TeIVbEJ6",
+    isPaidCourse: true,
+    coursePrice: "₹4,499",
+    courseLink: "https://www.youtube.com/embed/-Q_JFys87EA?si=xTcy2cvsluRIokhu",
+    courseIndex: [
+      {
+        sectionName: "Introduction",
+        chapterNames: ["Appium Introduction"],
+        videoLinks: [
+          "https://www.youtube.com/embed/GeFBUMVCens?si=x2UzQPUyfZA-D_cA",
+        ],
+      },
+      {
+        sectionName: "Appium Setup",
+        chapterNames: ["Setup On Windows", "Setup On Mac"],
+        videoLinks: [
+          "https://www.youtube.com/embed/dLNEmXh46ig?si=H2yjFd4VoPHAob9M",
+          "https://www.youtube.com/embed/kvNnF4Zpgmo?si=KJKGAvk6C07MPIii",
+        ],
+      },
+      {
+        sectionName: "Appium Project With Java",
+        chapterNames: [
+          "Java Project - Android",
+          "Java Project - iOS",
+          "Use Appium Inspector",
+          "First Test Case Using Java",
+        ],
+        videoLinks: [
+          "https://www.youtube.com/embed/kgyH5Y8bvTo?si=Zp07WvMc80uujCzr",
+          "https://www.youtube.com/embed/Iq6Dt0rz7Uw?si=kVB-8x-eNq8vOGU-",
+          "https://www.youtube.com/embed/QjVU1q-M5YY?si=N5gbIdpZJ256F4q9",
+          "https://www.youtube.com/embed/dC7GjVCGwFk?si=NWhekkVXY-l4-6Jp",
+        ],
+      },
+      {
+        sectionName: "Page Object Model (POM)",
+        chapterNames: ["POM Design with Appium"],
+        videoLinks: [
+          "https://www.youtube.com/embed/FgQ26UjOHEY?si=wCyQEyQQNx3lUy_c",
+        ],
+      },
+    ],
   },
   {
     courseId: "YV5X1N",
