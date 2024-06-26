@@ -99,12 +99,15 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
               </Text>
               <Box overflowY={"scroll"} w={"100%"} h={"100%"} mt={5}>
                 <Box
-                  h={"480px"}
+                  h={"fit-content"}
                   w={"100%"}
                   overflow={"hidden"}
                   borderRadius={"8px"}
                 >
-                  <Box w={"99%"} h={"480px"}>
+                  <Box
+                    w={{ base: "100%", md: "99%" }}
+                    h={{ base: "240px", md: "480px" }}
+                  >
                     <AspectRatio w={"100%"} h={"100%"} ratio={1}>
                       {children}
                     </AspectRatio>
