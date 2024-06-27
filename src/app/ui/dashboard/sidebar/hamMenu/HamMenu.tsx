@@ -17,6 +17,7 @@ const HamMenu = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
   };
   return (
     <Button
+      width={"fit-content"}
       bg={"#EFF8FF"}
       color={"#044F63"}
       _hover={{ color: "#0275d8", bg: "#e2f2f6" }}

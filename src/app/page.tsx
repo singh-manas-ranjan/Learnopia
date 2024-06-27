@@ -39,7 +39,7 @@ export default function Page() {
     <Box
       as="main"
       sx={mainStyle}
-      bgImage={{ base: "url('/bgImg.jpg')" }}
+      bgImage={{ base: "url('/bgImg1.jpg')" }}
       backgroundSize={"cover"}
       backgroundPosition={{ base: "center" }}
       backgroundRepeat={"no-repeat"}

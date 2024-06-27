@@ -5,6 +5,7 @@ import { Box, Heading, List, ListItem, useMediaQuery } from "@chakra-ui/react";
 import SideLink from "./sideLinks/SideLink";
 import { useAppDispatch, useAppSelector } from "@/app/hooks/reduxHooks";
 import { onMouseEnter, onMouseExit } from "@/lib/features/sideBar/sideBarSlice";
+import HamMenu from "./hamMenu/HamMenu";
 interface sideBarLinks {
   [key: string]: NavLinkType[];
 }
@@ -29,7 +30,7 @@ const collapsedLogo = {
 const sideLinkContainer = {
   display: "flex",
   flexDirection: "column",
-  rowGap: "2rem",
+  rowGap: ".5rem",
   // padding: "1rem",
   height: "100vh",
   borderRadius: "8px",
@@ -41,13 +42,15 @@ const navLinksContainer = {
   display: "grid",
   rowGap: "1rem",
   padding: "1rem",
-  mt: "30px",
+  // mt: "10px",
+  // bg: "red",
 };
 
 const sectionContainer = {
   display: "flex",
   flexDirection: "column",
   rowGap: "1rem",
+  mt: "1rem",
 };
 
 const list = {
@@ -69,14 +72,14 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
   const menuOpen = useAppSelector((state) => state.sideBar.isOpen);
 
-  const handleMouseEnter = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    dispatch(onMouseEnter());
-  };
-  const handleMouseExit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    dispatch(onMouseExit());
-  };
+  // const handleMouseEnter = (
+  //   e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  // ) => {
+  //   dispatch(onMouseEnter());
+  // };
+  // const handleMouseExit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  //   dispatch(onMouseExit());
+  // };
 
   return (
     <>
@@ -93,12 +96,12 @@ const Sidebar = () => {
               )}
             </Box>
           </Box>
-
           <Box
             sx={navLinksContainer}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseExit}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseExit}
           >
+            <HamMenu isMenuOpen={menuOpen} />
             {Object.keys(navLinks).map((key, idx) => (
               <Box key={idx} sx={sectionContainer}>
                 <List sx={list}>

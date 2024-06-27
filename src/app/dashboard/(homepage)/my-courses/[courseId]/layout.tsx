@@ -23,9 +23,9 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { BsShare, BsBookmarkDash } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
 import coursesList from "../../../../../../public/courses";
+import ShareButton from "@/app/ui/dashboard/enrolledCoursesContainer/myCoursesCard/shareButton/ShareButton";
 
 interface Props {
   params: { courseId: string };
@@ -46,18 +46,6 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
     alignItems: "center",
     padding: "1rem",
     overflow: "hidden",
-  };
-
-  const iconContainer = {
-    borderRadius: "50%",
-    bgColor: "#EFF8FF",
-    width: { base: "30px", md: "40px" },
-    height: { base: "30px", md: "40px" },
-    display: "grid",
-    placeItems: "center",
-    cursor: "pointer",
-    _hover: { color: "#ffffff", bg: "#97CAF0" },
-    transition: "all .1s linear",
   };
 
   const textFontSize = {
@@ -85,12 +73,9 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 <Heading as="h1" size={{ base: "md", lg: "lg" }} color={"#333"}>
                   {course.courseName}
                 </Heading>
-                <Flex columnGap={2} paddingInline={1}>
-                  <Box sx={iconContainer}>
-                    <BsShare />
-                  </Box>
-                  <Box sx={iconContainer}>
-                    <BsBookmarkDash />
+                <Flex columnGap={2} paddingInline={1} alignItems={"center"}>
+                  <Box>
+                    <ShareButton />
                   </Box>
                 </Flex>
               </Flex>
@@ -116,11 +101,11 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 <Box mt={5} width={"100%"}>
                   <Tabs height={"fit-content"}>
                     <TabList overflowX={"scroll"}>
-                      <Tab sx={textFontSize}>Description</Tab>
-                      <Tab sx={textFontSize}>Reviews</Tab>
-                      <Tab sx={textFontSize}>Discussion</Tab>
-                      <Tab sx={textFontSize}>Resource</Tab>
-                      <Tab sx={textFontSize}>Instructor</Tab>
+                      <Tab>Description</Tab>
+                      <Tab>Reviews</Tab>
+                      <Tab>Discussion</Tab>
+                      <Tab>Resource</Tab>
+                      <Tab>Instructor</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel>
@@ -231,11 +216,11 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
               </Box>
             </Grid>
           </Flex>
-          {/* <Divider
+          <Divider
             orientation="vertical"
             variant={"solid"}
             borderWidth={"1px"}
-          /> */}
+          />
           <Flex flex={2} flexDirection={"column"} p={".5rem"} rowGap={6}>
             <Flex flexDirection={"column"} rowGap={3}>
               <Heading fontSize={{ base: "md", md: "lg" }} pl={4}>

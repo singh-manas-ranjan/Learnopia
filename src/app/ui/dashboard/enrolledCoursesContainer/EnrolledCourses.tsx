@@ -20,7 +20,7 @@ const EnrolledCourses = () => {
       justifyContent={"center"}
       paddingBlock={".5rem"}
     >
-      {enrolledCourses.slice(0, 3).map((course, idx) => (
+      {enrolledCourses.map((course, idx) => (
         <MyCoursesCard key={idx} course={course} />
       ))}
     </SimpleGrid>
