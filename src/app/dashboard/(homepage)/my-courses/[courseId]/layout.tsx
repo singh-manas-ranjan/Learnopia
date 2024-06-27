@@ -297,7 +297,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                             as="span"
                             flex="1"
                             textAlign="left"
-                            sx={textFontSize}
+                            fontSize={{ base: ".9rem" }}
                             h={"fit-content"}
                           >
                             {`Section ${index + 1} - ${

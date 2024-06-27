@@ -72,15 +72,6 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
   const menuOpen = useAppSelector((state) => state.sideBar.isOpen);
 
-  // const handleMouseEnter = (
-  //   e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  // ) => {
-  //   dispatch(onMouseEnter());
-  // };
-  // const handleMouseExit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-  //   dispatch(onMouseExit());
-  // };
-
   return (
     <>
       {minWidth480 && (
@@ -96,11 +87,7 @@ const Sidebar = () => {
               )}
             </Box>
           </Box>
-          <Box
-            sx={navLinksContainer}
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseExit}
-          >
+          <Box sx={navLinksContainer}>
             <HamMenu isMenuOpen={menuOpen} />
             {Object.keys(navLinks).map((key, idx) => (
               <Box key={idx} sx={sectionContainer}>

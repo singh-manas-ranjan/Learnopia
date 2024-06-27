@@ -141,11 +141,15 @@ const Navbar = () => {
       {maxWidth481 && (
         <Box
           position={"absolute"}
-          top={"126%"}
+          top={"120%"}
           zIndex={"9"}
           bg={"#ffffff"}
           padding={"1rem"}
           className={isMenuOpen ? styles.open : styles.close}
+          display={"flex"}
+          flexDirection={"column"}
+          rowGap={".6rem"}
+          boxShadow={"5px 0 3px -3px #00000030"}
         >
           {Object.keys(navLinks).map((key, idx) => (
             <List

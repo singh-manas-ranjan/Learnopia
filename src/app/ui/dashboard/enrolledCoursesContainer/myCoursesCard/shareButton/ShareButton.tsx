@@ -6,10 +6,11 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   useDisclosure,
+  Text,
+  Input,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsShare } from "react-icons/bs";
@@ -39,6 +40,7 @@ const shareBtnContainer = {
 
 const ShareButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const fullUrl = typeof window === "undefined" ? "" : window.location.href;
   return (
     <>
       <Button onClick={onOpen} sx={shareBtnContainer}>
@@ -98,6 +100,25 @@ const ShareButton = () => {
               >
                 <WhatsappIcon size={32} round />
               </WhatsappShareButton>
+            </Flex>
+            <Flex alignItems={"center"} columnGap={2} p={3}>
+              <Input
+                type="text"
+                fontSize={"smaller"}
+                value={fullUrl}
+                readOnly={true}
+                height={"1.8rem"}
+              />
+              <Button
+                size={"sm"}
+                fontSize={".7rem"}
+                borderRadius={"15px"}
+                colorScheme={"blue"}
+                width={"70px"}
+                onClick={() => navigator.clipboard.writeText(fullUrl)} //copy to clipboard
+              >
+                Copy
+              </Button>
             </Flex>
           </ModalBody>
         </ModalContent>
