@@ -89,9 +89,9 @@ const Navbar = ({ navLinks }: Props) => {
         Welcome Back{" "}
         <FaHandsClapping color="orange" style={{ marginLeft: ".5rem" }} />{" "}
       </Text>
-      <Box display={{ md: "none" }}>
-        {maxWidth481 && <HamMenu isMenuOpen={isMenuOpen} />}
-      </Box>
+
+      {maxWidth481 && <HamMenu isMenuOpen={isMenuOpen} />}
+
       <Flex sx={rightNav}>
         <Menu>
           <Flex sx={notificationContainer}>

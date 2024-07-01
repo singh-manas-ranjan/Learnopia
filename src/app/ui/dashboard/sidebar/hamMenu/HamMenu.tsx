@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks/reduxHooks";
@@ -16,16 +16,16 @@ const HamMenu = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
     dispatch(openMenuClick(!isOpen));
   };
   return (
-    <Button
-      width={"fit-content"}
-      bg={"#EFF8FF"}
-      color={"#044F63"}
-      _hover={{ color: "#0275d8", bg: "#e2f2f6" }}
-      onClick={handleMenuClick}
-      mb={"1rem"}
-    >
-      {isMenuOpen ? <IoClose size={20} /> : <IoMenu size={20} />}
-    </Button>
+    <Flex height={"fit-content"} alignItems={"center"}>
+      <Button
+        bg={"#EFF8FF"}
+        color={"#044F63"}
+        _hover={{ color: "#0275d8", bg: "#e2f2f6" }}
+        onClick={handleMenuClick}
+      >
+        {isMenuOpen ? <IoClose size={20} /> : <IoMenu size={20} />}
+      </Button>
+    </Flex>
   );
 };
 
