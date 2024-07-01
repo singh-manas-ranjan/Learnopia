@@ -58,7 +58,7 @@ const Courses = () => {
           }}
           // w={"100%"}
           justifyContent={"center"}
-          paddingBlock={".5rem"}
+          padding={".5rem"}
         >
           {coursesList
             .sort((a, b) => {

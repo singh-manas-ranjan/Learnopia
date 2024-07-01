@@ -18,7 +18,11 @@ interface Props {
 const MyCoursesCard = ({ course }: Props) => {
   return (
     <Link href={`/dashboard/my-courses/${btoa(course.courseId)}`}>
-      <Card>
+      <Card
+        boxShadow={
+          "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
+        }
+      >
         <CardHeader h={"60%"}>
           <Image
             src={`/${course.courseImg}`}

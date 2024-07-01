@@ -18,7 +18,7 @@ const EnrolledCourses = () => {
       }}
       w={"100%"}
       justifyContent={"center"}
-      paddingBlock={".5rem"}
+      padding={".5rem"}
     >
       {enrolledCourses.map((course, idx) => (
         <MyCoursesCard key={idx} course={course} />
