@@ -22,6 +22,7 @@ const HamMenu = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
       color={"#044F63"}
       _hover={{ color: "#0275d8", bg: "#e2f2f6" }}
       onClick={handleMenuClick}
+      mb={"1rem"}
     >
       {isMenuOpen ? <IoClose size={20} /> : <IoMenu size={20} />}
     </Button>

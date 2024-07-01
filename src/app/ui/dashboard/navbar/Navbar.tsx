@@ -20,11 +20,11 @@ import { TbLogout2 } from "react-icons/tb";
 import { FaHandsClapping } from "react-icons/fa6";
 import HamMenu from "../sidebar/hamMenu/HamMenu";
 import { useAppSelector } from "@/app/hooks/reduxHooks";
-import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
 import { getIcon } from "../sidebar/sideLinks/SideLink";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import styles from "./Navbar.module.css";
+import { TSideBarLinks } from "../sidebar/Sidebar";
 
 const nav = {
   bg: "#fff",
@@ -74,13 +74,11 @@ const rightNav = {
   alignItems: "center",
 };
 
-interface sideBarLinks {
-  [key: string]: NavLinkType[];
+interface Props {
+  navLinks: TSideBarLinks;
 }
 
-const navLinks: sideBarLinks = sidebarLinks;
-
-const Navbar = () => {
+const Navbar = ({ navLinks }: Props) => {
   const pathname = usePathname();
   const [minWidth600] = useMediaQuery("(min-width: 600px)");
   const [maxWidth481] = useMediaQuery("(max-width: 481px)");
@@ -141,7 +139,7 @@ const Navbar = () => {
       {maxWidth481 && (
         <Box
           position={"absolute"}
-          top={"120%"}
+          top={"121.9%"}
           zIndex={"9"}
           bg={"#ffffff"}
           padding={"1rem"}

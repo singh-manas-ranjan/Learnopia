@@ -28,7 +28,7 @@ const Courses = () => {
   };
 
   return (
-    <Box as="main" sx={main} rowGap={5} overflow={"hidden"} bg={"red"}>
+    <Box as="main" sx={main} rowGap={5} overflow={"hidden"}>
       <Box
         alignSelf={"flex-end"}
         marginRight={1}

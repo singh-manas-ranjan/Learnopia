@@ -1,16 +1,17 @@
 "use client";
-import React, { useState } from "react";
-import sidebarLinks, { NavLinkType } from "../../../../../public/sidebarLinks";
+import React from "react";
 import { Box, Heading, List, ListItem, useMediaQuery } from "@chakra-ui/react";
 import SideLink from "./sideLinks/SideLink";
-import { useAppDispatch, useAppSelector } from "@/app/hooks/reduxHooks";
-import { onMouseEnter, onMouseExit } from "@/lib/features/sideBar/sideBarSlice";
+import { useAppSelector } from "@/app/hooks/reduxHooks";
 import HamMenu from "./hamMenu/HamMenu";
-interface sideBarLinks {
+import { NavLinkType } from "../../../../../public/sidebarLinks";
+export type TSideBarLinks = {
   [key: string]: NavLinkType[];
-}
+};
 
-const navLinks: sideBarLinks = sidebarLinks;
+interface Props {
+  navLinks: TSideBarLinks;
+}
 
 const logo = {
   fontSize: "xx-large",
@@ -49,8 +50,7 @@ const navLinksContainer = {
 const sectionContainer = {
   display: "flex",
   flexDirection: "column",
-  rowGap: "1rem",
-  mt: "1rem",
+  // rowGap: "1rem",
 };
 
 const list = {
@@ -67,9 +67,8 @@ const listItems = {
   color: "black",
 };
 
-const Sidebar = () => {
+const Sidebar = ({ navLinks }: Props) => {
   const [minWidth480] = useMediaQuery("(min-width: 481px)");
-  const dispatch = useAppDispatch();
   const menuOpen = useAppSelector((state) => state.sideBar.isOpen);
 
   return (

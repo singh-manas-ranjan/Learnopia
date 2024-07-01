@@ -2,7 +2,7 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import Sidebar from "../ui/dashboard/sidebar/Sidebar";
 import Navbar from "../ui/dashboard/navbar/Navbar";
-import sidebarLinks from "../../../public/sidebarLinks";
+import adminSidebarLinks from "../../../public/adminSidebarLinks";
 
 interface Props {
   children: ReactNode;
@@ -29,16 +29,15 @@ const DashBoardLayout = ({ children }: Props) => {
     flexDirection: "column",
     h: "100vh",
     rowGap: "1rem",
-    // padding: "1rem 1rem 1rem 0",
   };
 
   return (
     <Box as="main" sx={container}>
       <Box sx={menuContainer} width={"fit-content"}>
-        <Sidebar navLinks={sidebarLinks} />
+        <Sidebar navLinks={adminSidebarLinks} />
       </Box>
       <Box sx={nav_content_container}>
-        <Navbar navLinks={sidebarLinks} />
+        <Navbar navLinks={adminSidebarLinks} />
         {children}
       </Box>
     </Box>

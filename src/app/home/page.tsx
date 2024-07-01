@@ -1,5 +1,4 @@
 import {
-  SimpleGrid,
   Card,
   CardHeader,
   Heading,
@@ -8,7 +7,12 @@ import {
   Grid,
   Box,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
+
+const btnStyle = {
+  width: "100%",
+};
 
 const Home = () => {
   return (
@@ -17,7 +21,7 @@ const Home = () => {
         display={{ base: "grid", md: "flex" }}
         rowGap={10}
         columnGap={10}
-        width={{ base: "70%", sm: "50%", md: "80%" }}
+        width={{ base: "70%", sm: "50%", md: "80%", lg: "70%" }}
         textAlign={"center"}
       >
         <Card variant="filled" flex={1}>
@@ -26,7 +30,11 @@ const Home = () => {
           </CardHeader>
 
           <CardFooter display={"grid"} alignItems={"center"}>
-            <Button colorScheme="teal">Visit</Button>
+            <Link href={"/admin-dashboard"}>
+              <Button sx={btnStyle} colorScheme="teal">
+                Visit
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
         <Card variant="filled" flex={1}>
@@ -35,7 +43,11 @@ const Home = () => {
           </CardHeader>
 
           <CardFooter display={"grid"} alignItems={"center"}>
-            <Button colorScheme="teal">Visit</Button>
+            <Link href={"/instructor-dashboard"}>
+              <Button sx={btnStyle} colorScheme="teal">
+                Visit
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
         <Card variant="filled" flex={1}>
@@ -44,9 +56,11 @@ const Home = () => {
           </CardHeader>
 
           <CardFooter display={"grid"} alignItems={"center"}>
-            <Button as={"a"} href="/dashboard" colorScheme="teal">
-              Visit
-            </Button>
+            <Link href={"/dashboard"}>
+              <Button sx={btnStyle} colorScheme="teal">
+                Visit
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </Box>

@@ -4,15 +4,19 @@ import React from "react";
 import { NavLinkType } from "../../../../../../public/sidebarLinks";
 import { usePathname } from "next/navigation";
 import styles from "./SideLink.module.css";
-import { Box, transition } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { MdSpaceDashboard } from "react-icons/md";
 import { PiExamFill } from "react-icons/pi";
 import { MdPlayLesson } from "react-icons/md";
 import { FaRegCreditCard } from "react-icons/fa";
 import { GiProgression } from "react-icons/gi";
-import { ImProfile } from "react-icons/im";
+import { RiProfileFill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { ImBooks } from "react-icons/im";
+import { IoPerson } from "react-icons/io5";
+import { FaUsers } from "react-icons/fa6";
+import { BiSolidMessageDetail } from "react-icons/bi";
+import { FaFileInvoiceDollar } from "react-icons/fa6";
 
 interface Props {
   sideLink: NavLinkType;
@@ -34,9 +38,17 @@ export const getIcon = (iconName: string): JSX.Element | null => {
     case "progress":
       return <GiProgression />;
     case "profile":
-      return <ImProfile />;
+      return <RiProfileFill />;
     case "settings":
       return <IoMdSettings />;
+    case "person":
+      return <IoPerson />;
+    case "multiPersons":
+      return <FaUsers />;
+    case "message":
+      return <BiSolidMessageDetail />;
+    case "invoice":
+      return <FaFileInvoiceDollar />;
     default:
       return null;
   }

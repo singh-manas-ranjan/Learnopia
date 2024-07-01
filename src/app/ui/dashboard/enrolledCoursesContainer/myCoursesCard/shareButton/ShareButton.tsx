@@ -9,7 +9,6 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
-  Text,
   Input,
 } from "@chakra-ui/react";
 import React from "react";
@@ -60,7 +59,7 @@ const ShareButton = () => {
                 }
                 className="Demo__some-network__share-button"
               >
-                <FacebookIcon size={32} round />
+                <FacebookIcon size={32} round={true} />
               </FacebookShareButton>
               <EmailShareButton
                 url={
@@ -68,7 +67,7 @@ const ShareButton = () => {
                 }
                 className="Demo__some-network__share-button"
               >
-                <EmailIcon size={32} round />
+                <EmailIcon size={32} round={true} />
               </EmailShareButton>
               <TelegramShareButton
                 url={
@@ -76,7 +75,7 @@ const ShareButton = () => {
                 }
                 className="Demo__some-network__share-button"
               >
-                <TelegramIcon size={32} round />
+                <TelegramIcon size={32} round={true} />
               </TelegramShareButton>
               <LinkedinShareButton
                 url={
@@ -84,7 +83,7 @@ const ShareButton = () => {
                 }
                 className="Demo__some-network__share-button"
               >
-                <LinkedinIcon size={32} round />
+                <LinkedinIcon size={32} round={true} />
               </LinkedinShareButton>
               <TwitterShareButton
                 url={
@@ -92,13 +91,13 @@ const ShareButton = () => {
                 }
                 className="Demo__some-network__share-button"
               >
-                <TwitterIcon size={32} round />
+                <TwitterIcon size={32} round={true} />
               </TwitterShareButton>
               <WhatsappShareButton
                 url={"https://web.whatsapp.com"}
                 className="Demo__some-network__share-button"
               >
-                <WhatsappIcon size={32} round />
+                <WhatsappIcon size={32} round={true} />
               </WhatsappShareButton>
             </Flex>
             <Flex alignItems={"center"} columnGap={2} p={3}>
