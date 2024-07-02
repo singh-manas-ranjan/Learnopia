@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import React from "react";
+import React, { Suspense } from "react";
 import Overview from "../ui/adminDashboard/overview/Overview";
 
 const main = {
@@ -15,7 +15,9 @@ const main = {
 const AdminDashboard = () => {
   return (
     <Box as="main" sx={main} rowGap={5} overflow={"hidden"}>
-      <Overview />
+      <Suspense>
+        <Overview />
+      </Suspense>
     </Box>
   );
 };
