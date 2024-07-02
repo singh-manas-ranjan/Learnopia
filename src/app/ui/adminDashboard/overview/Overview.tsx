@@ -22,20 +22,9 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { useMediaQuery } from "@chakra-ui/react";
 import OverviewMiddleCards from "./middleCards/OverviewMiddleCards";
 import OverviewBottomCards from "./bottomCards/OverviewBottomCards";
-
-type TSummary = {
-  title: string;
-  stats: string;
-  icon: string;
-};
-const summary: TSummary[] = [
-  { title: "Courses view", stats: "1.5k", icon: "views" },
-  { title: "Total learning hours", stats: "2.8k", icon: "totalHours" },
-  // { title: "Instructors enrol", stats: "10", icon: "totalInstructors" },
-  { title: "Students enrol", stats: "258", icon: "totalStudents" },
-  { title: "Tasks completed", stats: "120", icon: "tasksCompleted" },
-  { title: "Tasks due", stats: "12", icon: "tasksDue" },
-];
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import allStats from "../../../../../public/adminDashboardStats";
 
 const getIcon = (iconName: string): JSX.Element | null => {
   switch (iconName) {
@@ -68,6 +57,20 @@ const tabList = {
 };
 
 const Overview = () => {
+  const searchParams = useSearchParams();
+  const searchStats = searchParams.get("stats");
+
+  const summary =
+    searchStats === "W"
+      ? allStats[0]
+      : searchStats === "M"
+      ? allStats[1]
+      : searchStats === "Q"
+      ? allStats[2]
+      : searchStats === "Y"
+      ? allStats[3]
+      : allStats[0];
+
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   return (
     <>
@@ -85,17 +88,24 @@ const Overview = () => {
             outline={"none"}
           >
             <TabList sx={tabList}>
-              <Tab sx={tabsBtn}>{isMobile ? "W" : "Week"}</Tab>
-              <Tab sx={tabsBtn}>{isMobile ? "M" : "Month"}</Tab>
-              <Tab sx={tabsBtn}>{isMobile ? "Q" : "Quarter"}</Tab>
-              <Tab sx={tabsBtn}>{isMobile ? "Y" : "Year"}</Tab>
+              <Link href={"?stats=W"}>
+                <Tab sx={tabsBtn}>{isMobile ? "W" : "Week"}</Tab>
+              </Link>
+              <Link href={"?stats=M"}>
+                <Tab sx={tabsBtn}>{isMobile ? "M" : "Month"}</Tab>
+              </Link>
+              <Link href={"?stats=Q"}>
+                <Tab sx={tabsBtn}>{isMobile ? "Q" : "Quarter"}</Tab>
+              </Link>
+              <Link href={"?stats=Y"}>
+                <Tab sx={tabsBtn}>{isMobile ? "Y" : "Year"}</Tab>
+              </Link>
             </TabList>
           </Tabs>
         </Flex>
       </Flex>
       <Box
-        display={"flex"}
-        flexDirection={"column"}
+        display={"grid"}
         width={"100%"}
         height={"100%"}
         overflowY={"scroll"}
@@ -103,7 +113,7 @@ const Overview = () => {
       >
         <Box
           w={"100%"}
-          h={{ sm: "150px", md: "fit-content" }}
+          h={{ sm: "130px", md: "fit-content" }}
           overflowY={{ sm: "scroll", md: "unset" }}
         >
           <SimpleGrid
@@ -117,7 +127,7 @@ const Overview = () => {
             }}
             templateRows={{ base: "115px", sm: "120px", md: "auto" }}
           >
-            {summary.map((card, idx) => (
+            {summary.stats.map((card, idx) => (
               <Card
                 key={idx}
                 boxShadow={
