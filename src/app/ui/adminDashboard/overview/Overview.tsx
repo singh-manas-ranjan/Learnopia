@@ -103,14 +103,15 @@ const Overview = () => {
       >
         <Box
           w={"100%"}
-          h={{ base: "150px", md: "fit-content" }}
-          overflowY={{ base: "scroll", md: "unset" }}
+          h={{ sm: "150px", md: "fit-content" }}
+          overflowY={{ sm: "scroll", md: "unset" }}
         >
           <SimpleGrid
             padding={2}
             spacing={4}
             templateColumns={{
-              base: "repeat(2, 1fr)",
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
               md: "repeat(4, 1fr)",
               lg: "repeat(5, 1fr)",
             }}

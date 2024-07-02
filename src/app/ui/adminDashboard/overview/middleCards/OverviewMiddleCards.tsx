@@ -47,8 +47,8 @@ const OverviewMiddleCards = () => {
       p={".5rem"}
       gridTemplateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2,1fr)" }}
       columnGap={5}
-      h={{ base: "300", md: "fit-content" }}
-      overflowY={{ base: "scroll", md: "unset" }}
+      h={{ sm: "300", md: "fit-content" }}
+      overflowY={{ sm: "scroll", md: "unset" }}
       rowGap={5}
     >
       {cardTitles.map((card, idx) => (

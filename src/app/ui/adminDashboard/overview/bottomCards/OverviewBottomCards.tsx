@@ -47,12 +47,12 @@ const OverviewBottomCards = () => {
   return (
     <Box
       w={"100%"}
-      h={{ base: "300", md: "fit-content" }}
+      h={{ sm: "300", md: "fit-content" }}
       display={"grid"}
       p={".5rem"}
       gridTemplateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr )" }}
       columnGap={5}
-      overflowY={{ base: "scroll", md: "unset" }}
+      overflowY={{ sm: "scroll", md: "unset" }}
       rowGap={5}
     >
       {/* {headings.map((card, idx) => ( */}

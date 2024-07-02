@@ -28,11 +28,11 @@ import { TSideBarLinks } from "../sidebar/Sidebar";
 
 const nav = {
   bg: "#fff",
-  height: "5rem",
+  height: { base: "5rem" },
   borderRadius: "4px",
   alignItems: "center",
   justifyContent: "space-between",
-  paddingInline: "1rem",
+  padding: "1rem",
 };
 
 const button = {
