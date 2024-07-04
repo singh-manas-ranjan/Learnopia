@@ -78,6 +78,7 @@ const Profile = () => {
                 position={"relative"}
               >
                 <Image
+                  priority
                   alt="profile-pic"
                   src={"/profilePic.jpeg"}
                   width={"100"}
