@@ -85,8 +85,9 @@ const EditPersonalInfo = () => {
         placeItems={"center"}
         boxSize={10}
         borderRadius={"50%"}
-        bg={"#E5E9F2"}
-        _hover={{ bg: "#97CAF0" }}
+        bg={"transparent"}
+        transition={".3s ease-in-out"}
+        _hover={{ bg: "#E2E8F0" }}
       >
         <BiSolidEdit style={{ borderRadius: "50%" }} />
       </Button>
