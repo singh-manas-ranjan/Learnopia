@@ -21,11 +21,11 @@ import {
   Input,
   Box,
   InputGroup,
-  Select,
   InputLeftElement,
   Text,
+  Select,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { MdLocalPhone } from "react-icons/md";
 import { MdAttachEmail } from "react-icons/md";
@@ -35,6 +35,7 @@ import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import { FaMapLocation } from "react-icons/fa6";
 import { FaStreetView } from "react-icons/fa6";
 import { GiPathDistance } from "react-icons/gi";
+
 interface Props {
   studentPersonalInfo: TStudentsInfo;
 }
@@ -231,6 +232,7 @@ const EditPersonalInfo = () => {
                           placeholder="Select Gender"
                           size={"sm"}
                           cursor={"pointer"}
+                          variant={"filled"}
                         >
                           <option value="male">Male</option>
                           <option value="female">Female</option>
@@ -243,7 +245,7 @@ const EditPersonalInfo = () => {
                           {...register("qualification")}
                           placeholder="Select Qualification"
                           size={"sm"}
-                          variant={"outline"}
+                          variant={"filled"}
                           cursor={"pointer"}
                         >
                           <option value="ug">Under Graduate</option>
