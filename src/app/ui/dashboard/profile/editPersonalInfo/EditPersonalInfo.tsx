@@ -1,5 +1,4 @@
 "use client";
-import { TStudentsInfo } from "@/app/dashboard/(settings)/profile/page";
 import {
   useDisclosure,
   Button,
@@ -35,6 +34,7 @@ import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import { FaMapLocation } from "react-icons/fa6";
 import { FaStreetView } from "react-icons/fa6";
 import { GiPathDistance } from "react-icons/gi";
+import { TStudentsInfo } from "../../../../../../public/studentInfo";
 
 interface Props {
   studentPersonalInfo: TStudentsInfo;
@@ -89,7 +89,7 @@ const EditPersonalInfo = () => {
         transition={".3s ease-in-out"}
         _hover={{ bg: "#E2E8F0" }}
       >
-        <BiSolidEdit style={{ borderRadius: "50%" }} />
+        <BiSolidEdit style={{ borderRadius: "50%" }} color="#364A63" />
       </Button>
 
       <Modal

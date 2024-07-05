@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Text,
@@ -21,7 +22,7 @@ const SocialLinks = ({ socialLinks }: Props) => {
       {socialLinks.map((link, idx) => (
         <FormControl width={"100%"} key={idx} mt={idx === 0 ? 2 : 5}>
           <InputGroup
-            size="sm"
+            size={{ base: "xs", lg: "sm" }}
             flexDir={{ base: "column", sm: "row" }}
             rowGap={1}
             columnGap={2}
@@ -44,16 +45,16 @@ const SocialLinks = ({ socialLinks }: Props) => {
               </Text>
             </Box>
             <Box
-              flex={{ sm: 3, md: 2, xl: 7 }}
+              flex={{ sm: 3, md: 2, lg: 4, xl: 7 }}
               display={"flex"}
               alignItems={"center"}
               w={"100%"}
-              fontSize={"sm"}
+              fontSize={{ base: "xs", lg: "sm" }}
             >
-              <InputLeftAddon>https://</InputLeftAddon>
+              <InputLeftAddon fontSize={"xs"}>https://</InputLeftAddon>
               <Input
-                placeholder={`${link.name}`}
-                size={"sm"}
+                placeholder={`${link.placeHolder}`}
+                size={{ base: "xs", lg: "sm" }}
                 id={`${link.iconName}`}
               />
             </Box>
@@ -61,7 +62,7 @@ const SocialLinks = ({ socialLinks }: Props) => {
         </FormControl>
       ))}
       <Button size={"sm"} colorScheme={"blue"} type="submit" mt={5}>
-        Upload Social Links
+        Update Profile
       </Button>
     </form>
   );

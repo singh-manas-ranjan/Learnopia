@@ -17,18 +17,9 @@ import Image from "next/image";
 import React from "react";
 import SocialLinks from "@/app/ui/dashboard/profile/socialLinks/SocialLinks";
 import socialLinksData from "../../../../../public/socialLinksData";
-
-export type TStudentsInfo = {
-  [key: string]: string;
-};
-
-const studentInfo: TStudentsInfo = {
-  "First Name": "Manas",
-  "Last Name": "Singh",
-  Email: "manassingh900@gmail.com",
-  Phone: "+91 7859648565",
-  Address: "Koramangla, Bengaluru, KA",
-};
+import JoditTextEditor from "@/app/ui/joditEditor/JoditTextEditor";
+import ResetPassword from "@/app/ui/dashboard/profile/resetPassword/ResetPassword";
+import studentInfo from "../../../../../public/studentInfo";
 
 const main = {
   width: "100%",
@@ -105,7 +96,7 @@ const Profile = () => {
                 />
                 <UploadProfilePicBtn />
               </Box>
-              <Grid textAlign={"center"} rowGap={2}>
+              <Grid textAlign={"center"} rowGap={2} color={"#364A63"}>
                 <Heading fontSize={{ base: "sm", lg: "md" }}>
                   Manas Ranjan Singh
                 </Heading>
@@ -135,7 +126,7 @@ const Profile = () => {
             w={"100%"}
           >
             <Tabs w={"100%"} h={"100%"}>
-              <TabList>
+              <TabList color={"#364A63"}>
                 <Tab p={3} fontSize={{ base: "sm", lg: "1rem" }}>
                   Profile
                 </Tab>
@@ -146,7 +137,11 @@ const Profile = () => {
                   Social Links
                 </Tab>
               </TabList>
-              <TabPanels h={{ base: "350px", sm: "100%" }} overflowY={"scroll"}>
+              <TabPanels
+                h={{ base: "350px", md: "100%" }}
+                overflowY={{ base: "scroll", md: "unset" }}
+                paddingBlock={".1rem"}
+              >
                 <TabPanel p={0} mt={5}>
                   <Box
                     borderRadius={6}
@@ -177,7 +172,10 @@ const Profile = () => {
                           width={"100%"}
                           h={"fit-content"}
                         >
-                          <Heading fontSize={{ base: "md", lg: "lg" }}>
+                          <Heading
+                            fontSize={{ base: "md", lg: "lg" }}
+                            color={"#364A63"}
+                          >
                             Personal Information
                           </Heading>
                           <EditPersonalInfo />
@@ -206,6 +204,7 @@ const Profile = () => {
                                 display={"flex"}
                                 justifyContent={"space-between"}
                                 alignItems={"center"}
+                                color={"#364A63"}
                               >
                                 {`${key} `} <span>:</span>
                               </Heading>
@@ -218,6 +217,7 @@ const Profile = () => {
                                 width={{ base: "65%", lg: "70%" }}
                                 display={"flex"}
                                 alignItems={"center"}
+                                color={"#364A63"}
                               >
                                 {studentInfo[key]}
                               </Text>
@@ -232,14 +232,20 @@ const Profile = () => {
                         "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
                       }
                       p={"1rem"}
-                    ></Box>
+                      display={"flex"}
+                      flexDir={"column"}
+                      width={"100%"}
+                      h={"100%"}
+                    >
+                      <JoditTextEditor />
+                    </Box>
                   </Box>
                 </TabPanel>
                 <TabPanel>
-                  <p>two!</p>
+                  <ResetPassword />
                 </TabPanel>
                 <TabPanel>
-                  <Box h={"100%"} overflow={"hidden"}>
+                  <Box h={"100%"}>
                     <SocialLinks socialLinks={socialLinksData} />
                   </Box>
                 </TabPanel>
