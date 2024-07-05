@@ -21,11 +21,11 @@ interface Props {
 
 const getIcon = (btnName: string): JSX.Element | null => {
   switch (btnName) {
-    case "Filter by":
-      return <MdOutlineFilterAlt size={20} />;
+    case "Filter":
+      return <MdOutlineFilterAlt />;
       break;
-    case "Sort by":
-      return <HiSortAscending size={20} />;
+    case "Sort":
+      return <HiSortAscending />;
 
     default:
       return null;
@@ -47,13 +47,14 @@ const OrderByBtn = ({
         alignItems={"center"}
         borderColor={"#A0AEC0"}
         // w={120}
-        size={{ base: "sm", lg: "md" }}
+        size={{ base: "xs", sm: "sm", lg: "md" }}
       >
         <Text
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
           columnGap={1}
+          fontSize={{ base: "xs", sm: "sm" }}
         >
           {getIcon(btnName)} {btnName}
         </Text>

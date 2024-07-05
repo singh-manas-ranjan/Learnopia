@@ -40,11 +40,11 @@ const Courses = () => {
             key={idx}
             button={orderBy}
             handleOnChange={
-              orderBy.btnName === "Filter by"
+              orderBy.btnName === "Filter"
                 ? handleOnFilterChange
                 : handleOnSortChange
             }
-            selectedOptn={orderBy.btnName === "Filter by" ? filterBy : sortBy}
+            selectedOptn={orderBy.btnName === "Filter" ? filterBy : sortBy}
           />
         ))}
       </Box>

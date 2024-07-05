@@ -1,10 +1,10 @@
 const orderByBtns = [
   {
-    btnName: "Filter by",
+    btnName: "Filter",
     options: ["All", "Free Courses", "Paid Courses"],
   },
   {
-    btnName: "Sort by",
+    btnName: "Sort",
     options: ["Ascending", "Descending", "Rating"],
   },
 ];
