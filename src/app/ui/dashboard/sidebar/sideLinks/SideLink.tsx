@@ -73,6 +73,7 @@ const SideLink = ({ sideLink, isOpen }: Props) => {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const handleClick = () => {
+    if (!isOpen) return;
     dispatch(openMenuClick(!isOpen));
   };
   return (
