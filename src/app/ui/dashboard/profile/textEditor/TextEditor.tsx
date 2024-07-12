@@ -1,9 +1,10 @@
 "use client";
 import Tiptap from "@/app/ui/TiptapTextEditor/Tiptap";
-import { FormControl, FormLabel } from "@chakra-ui/react";
+import { Box, FormControl, FormLabel } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-const TextEditor = () => {
+
+const TextEditor = ({ label }: { label: string }) => {
   const form = useForm({
     mode: "onChange",
     defaultValues: {
@@ -18,13 +19,15 @@ const TextEditor = () => {
     <form>
       <FormControl>
         <FormLabel size={"sm"} color={"#364A63"}>
-          Bio
+          {label}
         </FormLabel>
       </FormControl>
-      <Tiptap
-        content={content}
-        onChange={(newContent: string) => handleContentChange(newContent)}
-      />
+      <Box width={"100%"} overflowY={"scroll"} maxH={"250px"}>
+        <Tiptap
+          content={content}
+          onChange={(newContent: string) => handleContentChange(newContent)}
+        />
+      </Box>
     </form>
   );
 };

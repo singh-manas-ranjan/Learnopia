@@ -26,6 +26,7 @@ import Link from "next/link";
 import { MdOndemandVideo } from "react-icons/md";
 import coursesList from "../../../../../../public/courses";
 import ShareButton from "@/app/ui/dashboard/enrolledCoursesContainer/myCoursesCard/shareButton/ShareButton";
+import TextEditor from "@/app/ui/dashboard/profile/textEditor/TextEditor";
 
 interface Props {
   params: { courseId: string };
@@ -125,20 +126,107 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                         </Box>
                       </TabPanel>
                       <TabPanel>
-                        <Box w={{ base: "100%", md: "65%" }}>
-                          <Text sx={textFontSize}>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Id fugit deleniti ex tenetur quaerat ab
-                            tempore, culpa incidunt? Eum, exercitationem.
-                          </Text>
-                          <Text sx={textFontSize} mt={5}>
-                            Project management is so important to organizations
-                            and teams, but in order for it to be really
-                            effective, you need to make sure you&apos;re
-                            correctly mapping your project management
-                            methodology to your team type, project,
-                            organization, and goals.
-                          </Text>
+                        <Box w={{ base: "100%", md: "95%" }}>
+                          <Box
+                            w={"100%"}
+                            maxH={{ base: "30rem", sm: "35rem" }}
+                            display={"flex"}
+                            flexDir={"column"}
+                            rowGap={3}
+                          >
+                            {course.comments && (
+                              <Box
+                                w={"100%"}
+                                overflowY={"scroll"}
+                                h={{ base: "20rem", sm: "25rem", xl: "30rem" }}
+                              >
+                                <Accordion h={"100%"} overflowY={"scroll"}>
+                                  {course.comments?.map((comment, idx) => (
+                                    <AccordionItem key={idx}>
+                                      <Text>
+                                        <AccordionButton>
+                                          <Box
+                                            as="span"
+                                            flex="1"
+                                            textAlign="left"
+                                          >
+                                            <WrapItem
+                                              display={"flex"}
+                                              alignItems={{
+                                                base: "center",
+                                                md: "start",
+                                                lg: "center",
+                                              }}
+                                              flexDirection={{
+                                                md: "column",
+                                                lg: "row",
+                                              }}
+                                              columnGap={{
+                                                base: ".5rem",
+                                                md: "0",
+                                              }}
+                                            >
+                                              <Avatar
+                                                name={comment.student.name}
+                                                src={comment.student.imageSrc}
+                                                boxSize={{
+                                                  base: "2rem",
+                                                  lg: "2.5rem",
+                                                }}
+                                              />
+                                              <Grid
+                                                m={{ lg: 2 }}
+                                                ml={{ lg: 5 }}
+                                                width={"100%"}
+                                              >
+                                                <Flex
+                                                  justifyContent={
+                                                    "space-between"
+                                                  }
+                                                  alignItems={"center"}
+                                                  width={"100%"}
+                                                >
+                                                  <Text
+                                                    fontSize={{
+                                                      base: "sm",
+                                                      xl: "md",
+                                                    }}
+                                                  >
+                                                    {comment.student.name}
+                                                  </Text>
+                                                </Flex>
+                                                <Text
+                                                  fontSize={{
+                                                    base: ".6rem",
+                                                    sm: ".75rem",
+                                                    lg: ".8rem",
+                                                  }}
+                                                  color={"#8D94A3"}
+                                                >
+                                                  {`${comment.body.substring(
+                                                    0,
+                                                    100
+                                                  )} ...`}
+                                                </Text>
+                                              </Grid>
+                                            </WrapItem>
+                                          </Box>
+                                        </AccordionButton>
+                                      </Text>
+                                    </AccordionItem>
+                                  ))}
+                                </Accordion>
+                              </Box>
+                            )}
+                            <Box
+                              w={"100%"}
+                              p={".3rem"}
+                              overflowY={"scroll"}
+                              maxH={{ base: "10rem", md: "8rem" }}
+                            >
+                              <TextEditor label="Leave a Comment" />
+                            </Box>
+                          </Box>
                         </Box>
                       </TabPanel>
                       <TabPanel>
