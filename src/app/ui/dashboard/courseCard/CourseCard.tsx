@@ -4,6 +4,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+  color,
   Grid,
   Heading,
   Image,
@@ -24,12 +25,12 @@ const textStyle = {
 const CourseCard = ({ course }: Props) => {
   return (
     <Card
-      h={{ sm: "370px", md: "315px", lg: "325px" }}
+      h={{ sm: "370px", md: "315px", lg: "325px", xl: "100%" }}
       boxShadow={
         "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
       }
     >
-      <CardHeader h={{ base: "210px", md: "fit-content" }}>
+      <CardHeader h={{ base: "210px", md: "fit-content", xl: "100%" }}>
         <Image
           src={`/${course.courseImg}`}
           alt={course.courseName}
@@ -44,9 +45,11 @@ const CourseCard = ({ course }: Props) => {
         justifyContent={"space-between"}
         paddingBlock={0}
       >
-        <Heading size={{ base: "sm" }}>{course.courseName}</Heading>
+        <Heading size={{ base: "xs" }}>{course.courseName}</Heading>
         <Grid>
-          <Text sx={textStyle}>{course.author}</Text>
+          <Text sx={textStyle} color={"#3c7356"}>
+            {course.author}
+          </Text>
           <Box display={"flex"} justifyContent={"space-between"}>
             <Text sx={textStyle}>{course.courseRating}</Text>
             <Text color="blue.600" sx={textStyle}>
