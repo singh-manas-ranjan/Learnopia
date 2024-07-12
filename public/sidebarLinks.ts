@@ -5,7 +5,12 @@ const sidebarLinks = {
     { name: "My Courses", icon: "myCourses", link: "/dashboard/my-courses" },
     { name: "Exams", icon: "exams", link: "/dashboard/exams" },
     { name: "Subscriptions", icon: "card", link: "/dashboard/subscriptions" },
-    { name: "My progress", icon: "progress", link: "/dashboard/my-progress" },
+    { name: "My Progress", icon: "progress", link: "/dashboard/my-progress" },
+    {
+      name: "Completed Courses",
+      icon: "completed",
+      link: "/dashboard/completed-courses",
+    },
   ],
   Settings: [
     { name: "Profile", icon: "profile", link: "/dashboard/profile" },

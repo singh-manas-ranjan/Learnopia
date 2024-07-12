@@ -27,9 +27,9 @@ const DashBoardLayout = ({ children }: Props) => {
     flex: "6",
     display: "flex",
     flexDirection: "column",
-    h: "100vh",
+    h: "100%",
     rowGap: "1rem",
-    // padding: "1rem 1rem 1rem 0",
+    // overflowY: "scroll",
   };
 
   return (

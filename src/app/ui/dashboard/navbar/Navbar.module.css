@@ -29,7 +29,7 @@
 }
 
 .close {
-  width: 0%;
+  /* width: 0%; */
   left: -100%;
   overflow: hidden;
   height: 100vh;
