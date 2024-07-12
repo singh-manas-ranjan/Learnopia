@@ -71,11 +71,6 @@ const close = {
 
 const SideLink = ({ sideLink, isOpen }: Props) => {
   const pathname = usePathname();
-  const dispatch = useAppDispatch();
-  const handleClick = () => {
-    if (!isOpen) return;
-    dispatch(openMenuClick(!isOpen));
-  };
   return (
     <Link
       href={sideLink.link}
@@ -84,7 +79,6 @@ const SideLink = ({ sideLink, isOpen }: Props) => {
           ? [styles.link, styles.active].join(" ")
           : styles.link
       }
-      onClick={handleClick}
     >
       <Box>{getIcon(sideLink.icon)}</Box>
       {<Box sx={isOpen ? open : close}>{sideLink.name}</Box>}
