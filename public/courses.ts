@@ -1,3 +1,5 @@
+import studentRankings, { TStudentRankings } from "./rankingData";
+
 const coursesList = [
   {
     courseId: "FGK23R",
@@ -59,6 +61,28 @@ const coursesList = [
           "https://www.youtube.com/embed/y32sWmu-RI4?si=SK7_LsHV1ej7arQD",
           "https://www.youtube.com/embed/Jtc3j4ZNZEQ?si=6nSoFCdh7gviqsC6",
         ],
+      },
+    ],
+    comments: [
+      {
+        student: studentRankings[0],
+        body: "Very well structured course from basics to more complex programming. Simplified and easy to understand lectures about topics. Also at the end of each module there are challenges that puts newly acquired knowledge to the practice and helps to learn much much quicker. Strongly recommend this course!",
+      },
+      {
+        student: studentRankings[1],
+        body: "I really enjoyed this course. It was very well structured and the instructor was very",
+      },
+      {
+        student: studentRankings[2],
+        body: "As Angela said in the start that this is the best course for Web development, eventually after learning now I can definitely say that yes this is the best course so far.",
+      },
+      {
+        student: studentRankings[3],
+        body: "Dr Angela is the best teacher for web development! My confidence has sky rocketed- she imparts the spirit of the class and a mindset that sets one on taking new challenges and conquering them!",
+      },
+      {
+        student: studentRankings[4],
+        body: "This course is for beginners only. This course provide solid foundation of WebDevelopment by great explanations. But many important topics are missing.",
       },
     ],
   },
@@ -479,6 +503,11 @@ export type TCourseContents = {
   videoLinks: string[];
 };
 
+export type TComments = {
+  student: TStudentRankings;
+  body: string;
+};
+
 export type Course = {
   courseId: string;
   courseName: string;
@@ -489,6 +518,7 @@ export type Course = {
   isPaidCourse: Boolean;
   courseLink: string;
   courseIndex?: TCourseContents[];
+  comments?: TComments[];
 };
 
 export default coursesList;

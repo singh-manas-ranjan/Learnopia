@@ -132,7 +132,7 @@ const DetailedProfileInfo = () => {
               width={"100%"}
               h={"100%"}
             >
-              <TextEditor />
+              <TextEditor label={"Bio"} />
             </Box>
           </Box>
         </TabPanel>

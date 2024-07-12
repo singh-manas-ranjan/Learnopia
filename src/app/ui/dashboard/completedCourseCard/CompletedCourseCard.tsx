@@ -1,14 +1,11 @@
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
   Heading,
-  Stack,
   Image,
   Text,
   CardHeader,
-  Box,
   Grid,
   Badge,
   CircularProgress,
@@ -16,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Course } from "../../../../../public/courses";
-import EnrollBtn from "../courseCard/enrollBtn/EnrollBtn";
 
 const textStyle = {
   fontSize: { base: "sm", lg: "lg" },
@@ -74,7 +70,7 @@ const CompletedCourseCard = ({ course }: { course: Course }) => {
           COMPLETED
         </Badge>
         <CircularProgress value={100} color="green.400" size={"30px"}>
-          <CircularProgressLabel>100%</CircularProgressLabel>
+          <CircularProgressLabel fontSize={".4rem"}>100%</CircularProgressLabel>
         </CircularProgress>
       </CardFooter>
     </Card>
