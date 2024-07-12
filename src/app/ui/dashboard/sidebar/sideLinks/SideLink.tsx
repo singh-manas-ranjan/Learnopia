@@ -17,6 +17,8 @@ import { IoPerson } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa6";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
+import { useAppDispatch } from "@/app/hooks/reduxHooks";
+import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
 
 interface Props {
   sideLink: NavLinkType;
@@ -69,6 +71,10 @@ const close = {
 
 const SideLink = ({ sideLink, isOpen }: Props) => {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
+  const handleClick = () => {
+    dispatch(openMenuClick(!isOpen));
+  };
   return (
     <Link
       href={sideLink.link}
@@ -77,6 +83,7 @@ const SideLink = ({ sideLink, isOpen }: Props) => {
           ? [styles.link, styles.active].join(" ")
           : styles.link
       }
+      onClick={handleClick}
     >
       <Box>{getIcon(sideLink.icon)}</Box>
       {<Box sx={isOpen ? open : close}>{sideLink.name}</Box>}

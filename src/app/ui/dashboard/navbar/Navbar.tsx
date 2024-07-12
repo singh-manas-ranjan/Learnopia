@@ -19,12 +19,13 @@ import { IoIosNotifications } from "react-icons/io";
 import { TbLogout2 } from "react-icons/tb";
 import { FaHandsClapping } from "react-icons/fa6";
 import HamMenu from "../sidebar/hamMenu/HamMenu";
-import { useAppSelector } from "@/app/hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "@/app/hooks/reduxHooks";
 import { getIcon } from "../sidebar/sideLinks/SideLink";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import styles from "./Navbar.module.css";
 import { TSideBarLinks } from "../sidebar/Sidebar";
+import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
 
 const nav = {
   bg: "#fff",
@@ -83,6 +84,12 @@ const Navbar = ({ navLinks }: Props) => {
   const [minWidth600] = useMediaQuery("(min-width: 600px)");
   const [maxWidth481] = useMediaQuery("(max-width: 481px)");
   const isMenuOpen = useAppSelector((state) => state.sideBar.isOpen);
+
+  const dispatch = useAppDispatch();
+  const handleClick = () => {
+    dispatch(openMenuClick(!isMenuOpen));
+  };
+
   return (
     <Flex sx={nav} position={"relative"}>
       <Text display={{ base: "none", sm: "flex" }} color={"#044F63"}>
@@ -165,6 +172,7 @@ const Navbar = ({ navLinks }: Props) => {
                         ? [styles.link, styles.active].join(" ")
                         : styles.link
                     }
+                    onClick={handleClick}
                   >
                     <Box>{getIcon(sideLink.icon)}</Box>
                     <Box fontSize={"sm"} width={"100%"}>
