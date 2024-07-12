@@ -21,12 +21,13 @@ import DashBoardCourses from "../ui/dashboard/dashboardCourses/DashBoardCourses"
 
 const main = {
   width: "100%",
-  height: "90%",
+  height: "100%",
   bg: "#fff",
   borderRadius: "4px",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  flexDirection: "column",
+  padding: "1rem",
+  overflow: "hidden",
 };
 const Dashboard = () => {
   return (

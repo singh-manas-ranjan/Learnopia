@@ -5,14 +5,13 @@ import DetailedProfileInfo from "@/app/ui/dashboard/profile/detailedProfileInfo/
 
 const main = {
   width: "100%",
-  height: "100vh",
+  height: "100%",
   bg: "#fff",
   borderRadius: "4px",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-
-  padding: ".5rem",
+  flexDirection: "column",
+  padding: "1rem",
+  overflow: "hidden",
 };
 const Profile = () => {
   return (

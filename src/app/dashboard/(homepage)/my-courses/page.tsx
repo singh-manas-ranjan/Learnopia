@@ -4,12 +4,11 @@ import React from "react";
 
 const main = {
   width: "100%",
-  height: "90vh",
+  height: "100%",
   bg: "#fff",
   borderRadius: "4px",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  flexDirection: "column",
   padding: "1rem",
   overflow: "hidden",
 };

@@ -17,8 +17,7 @@ import { IoPerson } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa6";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
-import { useAppDispatch } from "@/app/hooks/reduxHooks";
-import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
+import { FaTrophy } from "react-icons/fa";
 
 interface Props {
   sideLink: NavLinkType;
@@ -41,6 +40,8 @@ export const getIcon = (iconName: string): JSX.Element | null => {
       return <GiProgression />;
     case "profile":
       return <RiProfileFill />;
+    case "completed":
+      return <FaTrophy />;
     case "settings":
       return <IoMdSettings />;
     case "person":

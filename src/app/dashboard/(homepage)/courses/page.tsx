@@ -8,12 +8,13 @@ import orderByBtns from "../../../../../public/orderByBtns";
 
 const main = {
   width: "100%",
-  height: "100vh",
+  height: "100%",
   bg: "#fff",
   borderRadius: "4px",
   display: "flex",
   flexDirection: "column",
   padding: "1rem",
+  overflow: "hidden",
 };
 const Courses = () => {
   const [filterBy, setFilter] = useState("all");
