@@ -19,8 +19,6 @@ import { BiSolidMessageDetail } from "react-icons/bi";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
 import { useAppDispatch } from "@/app/hooks/reduxHooks";
 import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
-import { useAppDispatch } from "@/app/hooks/reduxHooks";
-import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
 
 interface Props {
   sideLink: NavLinkType;
@@ -86,7 +84,6 @@ const SideLink = ({ sideLink, isOpen }: Props) => {
           ? [styles.link, styles.active].join(" ")
           : styles.link
       }
-      onClick={handleClick}
       onClick={handleClick}
     >
       <Box>{getIcon(sideLink.icon)}</Box>
