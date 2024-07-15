@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import React from "react";
 import BriefProfileInfo from "@/app/ui/dashboard/profile/briefProfileInfo/BriefProfileInfo";
 import DetailedProfileInfo from "@/app/ui/dashboard/profile/detailedProfileInfo/DetailedProfileInfo";
+import { sxScrollbar } from "../../../../../public/scrollbarStyle";
 
 const main = {
   width: "100%",
@@ -41,6 +42,7 @@ const Profile = () => {
             h={"100%"}
             w={"100%"}
             overflowY={"scroll"}
+            sx={sxScrollbar}
           >
             <DetailedProfileInfo />
           </Box>

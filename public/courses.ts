@@ -1,6 +1,6 @@
 import studentRankings, { TStudentRankings } from "./rankingData";
 
-const coursesList = [
+const coursesList: Course[] = [
   {
     courseId: "FGK23R",
     courseName: "The Complete 2024 Web Development BootCamp.",
@@ -9,6 +9,10 @@ const coursesList = [
     courseImg: "card1.jpeg",
     coursePrice: "₹3,099",
     isPaidCourse: true,
+    aboutCourse:
+      "Become a Full-Stack Web Developer with just ONE course. HTML, CSS, Javascript, Node, React, PostgreSQL, Web3 and DApps",
+    description:
+      "Transform into a versatile full-stack web developer with our all-inclusive course. Covering everything from the fundamentals to advanced topics, this course equips you with the skills to build dynamic, modern web applications. Start with the basics of HTML, CSS, and JavaScript to create stunning, interactive web pages. Progress to server-side development with Node.js and harness the power of React to build responsive, user-friendly interfaces. Dive into PostgreSQL for robust database management and explore the future of decentralized technology with Web3 and DApps. Ideal for aspiring developers and tech enthusiasts, this course provides hands-on projects, expert guidance, and a comprehensive learning experience to prepare you for the full stack of web development.",
     courseLink: "https://www.youtube.com/embed/5SXK__rm6DM?si=1K3T2xMPfYJ4Q_lm",
     courseIndex: [
       {
@@ -63,7 +67,7 @@ const coursesList = [
         ],
       },
     ],
-    comments: [
+    reviews: [
       {
         student: studentRankings[0],
         body: "Very well structured course from basics to more complex programming. Simplified and easy to understand lectures about topics. Also at the end of each module there are challenges that puts newly acquired knowledge to the practice and helps to learn much much quicker. Strongly recommend this course!",
@@ -94,6 +98,10 @@ const coursesList = [
     courseImg: "card2.jpeg",
     coursePrice: "₹3,099",
     isPaidCourse: true,
+    aboutCourse:
+      "Spring Boot 3: Learn Spring 6, Spring Core, Spring REST, Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate, MySQL",
+    description:
+      "Elevate your Java development skills with Mastering Spring Boot 3, a comprehensive course designed to guide you through the latest in Spring technology. Explore Spring Boot 3 and Spring 6 essentials, mastering core concepts like Dependency Injection, Aspect-Oriented Programming, and bean management. Learn to build and secure RESTful APIs, develop dynamic web applications using Spring MVC, and create interactive pages with Thymeleaf. Gain hands-on experience with JPA and Hibernate for efficient database interactions, and manage MySQL databases to integrate seamlessly with your Spring Boot applications. Ideal for Java developers, web developers, and software engineers, this course offers practical projects, expert instruction, and interactive learning to advance your skills in modern software development.",
     courseLink: "https://www.youtube.com/embed/729Pd-ZQ4uA?si=2shFbk4vajERRRgY",
     courseIndex: [
       {
@@ -170,6 +178,28 @@ const coursesList = [
         ],
       },
     ],
+    reviews: [
+      {
+        student: studentRankings[4],
+        body: "Amazing content along with superb and clear explanation. Overall a very well paced, informative and interesting course.",
+      },
+      {
+        student: studentRankings[3],
+        body: "Great balance between theory and practice. Author explains theory in approachable way. Clear graphics and examples. Many variations of examples, step by step. Lot of practice. Solid basics for beginners. Now, I can do more!",
+      },
+      {
+        student: studentRankings[2],
+        body: "The course was great, not only helped me learn new things but also tied together all my previous knowledge into a working application. The teacher is easy to understand and clearly has a gift for teaching, though he is a bit too positive for me personally ",
+      },
+      {
+        student: studentRankings[0],
+        body: "It's great especially if you're new to spring boot and you just want to understand the basics",
+      },
+      {
+        student: studentRankings[1],
+        body: "The teacher has great potential but the amount of useless things (creating a new directory for downloaded resources for example) or repeating the same information a few times has limited the amount of knowledge participants can obtain from this course.",
+      },
+    ],
   },
   {
     courseId: "PL7C2W",
@@ -179,6 +209,10 @@ const coursesList = [
     courseImg: "card3.jpeg",
     coursePrice: "₹599",
     isPaidCourse: true,
+    aboutCourse:
+      '"TOP RATED #1 Master SELENIUM java 4 (Latest) course" -5 Million students learning worldWide with great collaboration',
+    description:
+      "Join over 5 million students worldwide in mastering Selenium with Java through our top-rated, #1 course. This comprehensive and up-to-date course is designed to equip you with the skills to excel in automated testing. Dive into the latest version of Selenium, learn essential Java programming, and master automation techniques that are crucial for testing web applications. With a focus on real-world applications and collaboration, this course provides expert instruction, hands-on projects, and a supportive learning community. Perfect for both beginners and experienced testers looking to enhance their automation skills and advance their careers.",
     courseLink: "https://www.youtube.com/embed/PLLbGltmkpE?si=BsQ5MaBS0Ls-CI_J",
     courseIndex: [
       {
@@ -227,6 +261,28 @@ const coursesList = [
         ],
       },
     ],
+    reviews: [
+      {
+        student: studentRankings[2],
+        body: "Very good course for beginners, and the explanation is also very much clean and clear with materials. I would suggest this course for absolute beginners, who want to make their career in software as a tester.",
+      },
+      {
+        student: studentRankings[1],
+        body: "It was very happy to understand the selenium with a good gesture and concepts.",
+      },
+      {
+        student: studentRankings[4],
+        body: "I really appreciate his teaching style; it's helped me understand the topics well. However, I think the videos are a bit lengthy, which can sometimes make them overwhelming with information. I would suggest breaking them into shorter videos. Overall, though, I've enjoyed the course and learned a lot. Thank you!",
+      },
+      {
+        student: studentRankings[0],
+        body: "This is the best course ,I have seen till today , very good for the beginners who want to learn testing",
+      },
+      {
+        student: studentRankings[3],
+        body: "it is best automation course because i have tried may place to learn automation i could not learn qa automation after this complete lecture i recommended it is the word best teacher for qa automation because it is clearly explain every point in depth way",
+      },
+    ],
   },
   {
     courseId: "QR3B5S",
@@ -235,6 +291,10 @@ const coursesList = [
     courseRating: "4.3",
     courseImg: "card4.jpeg",
     isPaidCourse: false,
+    aboutCourse:
+      "Learn Django from scratch, build an E-commerce store, web based PDF generators, APIs using Python &amp; Django",
+    description:
+      "Unlock the power of web development with Learn Django from Scratch. This course takes you through the essentials of Django, guiding you from foundational concepts to advanced applications. Learn to build dynamic e-commerce stores, create web-based PDF generators, and develop robust APIs using Python and Django. Through hands-on projects and real-world examples, you'll gain practical experience and the confidence to tackle complex web development challenges. Perfect for aspiring developers and those looking to enhance their Python skills, this course offers a comprehensive introduction to Django and its capabilities.",
     courseLink: "https://www.youtube.com/embed/5BDgKJFZMl8?si=B4vChYaJKQX8GwzO",
     courseIndex: [
       {
@@ -292,6 +352,28 @@ const coursesList = [
         ],
       },
     ],
+    reviews: [
+      {
+        student: studentRankings[0],
+        body: "Thanks a lot for all your effort in spreading such wonderful tutorials... I have been following you with multiple accounts and have referred your channel to everybody i know who's even curious about Python or programming.",
+      },
+      {
+        student: studentRankings[1],
+        body: "Hi I am joined today.I am having 8 years experience in Retail & Sales. Looking entry in Data Science field. Looking forward from this course and one more thing Harry Bhai you are doing very great work man keep it up....God bless you ",
+      },
+      {
+        student: studentRankings[2],
+        body: "Bro also make a series on data science... machine learning.... Deep learning and the artificial intelligence, Because your teaching methodologies are awesome and fabulous....so we are waiting for these series also...",
+      },
+      {
+        student: studentRankings[3],
+        body: "Hello harry bhaiya! I am 15 years old learning to program. I have learnt c through your courses, and also python, now starting on Django Framework course! Thank you so much for these courses, I am from bengal, and my name is Archisman Nath. Thank you so much for giving these courses for free and making them so comprehensive and completely with desi bhasa which is clear and easy to understand.",
+      },
+      {
+        student: studentRankings[4],
+        body: "Hi Sir, you're the most respectful person. Thanks for helping everyone. We are proud to have you in our life. Our good wishes and support are always with you.",
+      },
+    ],
   },
   {
     courseId: "ZP4F7L",
@@ -301,6 +383,10 @@ const coursesList = [
     courseImg: "card5.jpeg",
     coursePrice: "₹4,499",
     isPaidCourse: true,
+    aboutCourse:
+      "JUST COMPLETELY REDONE! Master SQL, Work With Complex Databases, Build Reports, and More!",
+    description:
+      "Transform your data management skills with Master SQL. This comprehensive course is designed to take you from SQL basics to advanced database techniques. Learn to work with complex databases, execute sophisticated queries, and generate insightful reports. Whether you're a beginner looking to build a strong foundation or an experienced professional aiming to refine your skills, this course offers hands-on practice and real-world applications to enhance your SQL expertise. Perfect for data analysts, database administrators, and anyone interested in mastering the art of SQL and database management.",
     courseLink: "https://www.youtube.com/embed/iiRN93Ifv3A?si=z78o1A0FdqXDregv",
     courseIndex: [
       {
@@ -405,6 +491,28 @@ const coursesList = [
         ],
       },
     ],
+    reviews: [
+      {
+        student: studentRankings[0],
+        body: "The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert is a highly recommended course, the tutor is really helpful on explaining different related topics over SQL, and i really enjoyed it !",
+      },
+      {
+        student: studentRankings[1],
+        body: "Colt is an excellent teacher. He did a very good job at explaining all the technical stuff in an easy-to-understand, relatable way. His team was friendly and always ready to respond to all my questions throughout the entire course. I definitely recommend the course.",
+      },
+      {
+        student: studentRankings[2],
+        body: "The whole course was designed really well, from the instruction, to the resource material. Also, quite satisfied with the exercises that helped me have a grasp over the code myself. Definitely made me feel more confident about SQL at the end.",
+      },
+      {
+        student: studentRankings[3],
+        body: "This course has helped me a lot. Before learning this course, I have no idea about SQL. But now I can do queries and I can add SQL as my skill from now on after completed this course.",
+      },
+      {
+        student: studentRankings[4],
+        body: "Great course! Thank you for making me confident enough to get started with SQL. Loved the way the course was taught. The exercises helped to think and solve the challenges.",
+      },
+    ],
   },
   {
     courseId: "MN6D9T",
@@ -414,6 +522,10 @@ const coursesList = [
     courseImg: "card6.jpeg",
     isPaidCourse: true,
     coursePrice: "₹4,499",
+    aboutCourse:
+      "[LATEST VERSION 2.x] Only course to master Appium &amp; build production ready frameworks with CICD integration from scratch",
+    description:
+      "Elevate your mobile testing skills with our exclusive course on Mastering Appium (Latest Version 2.x). This is the only course designed to take you from the basics of Appium to creating production-ready automation frameworks. Learn to build robust testing solutions from scratch and integrate them seamlessly with Continuous Integration and Continuous Deployment (CI/CD) pipelines. Perfect for QA professionals and developers, this course provides hands-on experience with the latest Appium features, comprehensive framework development, and best practices for integrating testing into your development workflow.",
     courseLink: "https://www.youtube.com/embed/-Q_JFys87EA?si=xTcy2cvsluRIokhu",
     courseIndex: [
       {
@@ -454,6 +566,28 @@ const coursesList = [
         ],
       },
     ],
+    reviews: [
+      {
+        student: studentRankings[1],
+        body: "I won't say much, but this is enough. 'I successfully delivered two projects over two and half years, completely based on this course'. Hats off to OmPrakashChavan.",
+      },
+      {
+        student: studentRankings[4],
+        body: "The professor takes his time to explain everything on detail, also he speaks very well and his english is perfectly understandable, you can understand everything .",
+      },
+      {
+        student: studentRankings[2],
+        body: "Parts of the course are outdated, but the practical lessons are very nice. Also, the teacher seems to answer every question very fast and it really seems like he is trying to solve your issue. His assistants are below average, though.",
+      },
+      {
+        student: studentRankings[3],
+        body: "Very useful tutorials and gave me confident setting things up and running.Thank you Omprakash.",
+      },
+      {
+        student: studentRankings[0],
+        body: "Out dated content. Waste of money.Poor video quality.Text of most of the videos were not clear.Although he explains well. This course is not for noobs.",
+      },
+    ],
   },
   {
     courseId: "YV5X1N",
@@ -463,6 +597,10 @@ const coursesList = [
     courseImg: "card7.jpeg",
     coursePrice: "₹1,299",
     isPaidCourse: true,
+    aboutCourse:
+      "Learn how the Internet Works - HTTP/HTTPS, Mail Delivery (SMTP), LAN, WAN, Network Basics & Firewalls",
+    description:
+      "Demystify the complexities of the internet with our course on How the Internet Works. Explore essential networking concepts including HTTP/HTTPS protocols, mail delivery through SMTP, and the fundamentals of Local Area Networks (LAN) and Wide Area Networks (WAN). Gain a solid understanding of network basics and the role of firewalls in securing communications. Designed for beginners and tech enthusiasts, this course offers clear explanations and practical insights to help you grasp how modern internet technologies and network infrastructure function.",
     courseLink: "https://www.youtube.com/embed/lkO8wbL1zxM?si=cH-6ChW8TeIVbEJ6",
   },
   {
@@ -473,6 +611,10 @@ const coursesList = [
     courseImg: "card8.jpeg",
     coursePrice: "₹5,900",
     isPaidCourse: true,
+    aboutCourse:
+      "Learn to build websites with HTML , CSS , JAVASCRIPT , Bootstrap , PHP , MySQL , WordPress , OOP & more!",
+    description:
+      "Transform your web development skills with our Complete PHP course, designed to guide you through the creation of dynamic, fully-featured websites. Start by mastering the fundamentals of HTML, CSS, and JavaScript to craft visually appealing and interactive web pages. Dive into Bootstrap to enhance your designs with responsive layouts, and learn PHP for server-side scripting to build powerful web applications. Gain expertise in MySQL for database management, and explore WordPress for content management and site customization. Delve into Object-Oriented Programming (OOP) to write efficient and reusable code. This all-inclusive course provides practical, hands-on projects and expert guidance to help you build a comprehensive skill set in web development.",
     courseLink: "https://www.youtube.com/embed/lkO8wbL1zxM?si=cH-6ChW8TeIVbEJ6",
   },
   {
@@ -483,6 +625,10 @@ const coursesList = [
     courseImg: "card13.jpeg",
     coursePrice: "₹3,699",
     isPaidCourse: true,
+    aboutCourse:
+      "Become a Full-Stack Web Designer in 2023 - Learn Everything from Web Design Fundamentals to Front-End Web Development",
+    description:
+      "Step into the world of web design with our Full-Stack Web Designer course for 2023. This comprehensive program covers everything from the basics of web design to advanced front-end development techniques. Learn essential design principles and tools, master HTML, CSS, and JavaScript to create interactive and responsive websites, and gain practical skills in user experience (UX) and user interface (UI) design. This course is perfect for aspiring designers and developers looking to build a complete skill set, offering hands-on projects and expert insights to prepare you for a successful career in web design.",
     courseLink: "https://www.youtube.com/embed/lkO8wbL1zxM?si=cH-6ChW8TeIVbEJ6",
   },
   {
@@ -493,6 +639,10 @@ const coursesList = [
     courseImg: "card16.jpeg",
     coursePrice: "₹3,699",
     isPaidCourse: true,
+    aboutCourse:
+      "The only course you need to become a full-stack web developer. Covers HTML5, CSS3, JS, ES6, Node, APIs, Mobile & more!",
+    description:
+      "Unlock the full potential of web development with this all-in-one course designed to turn you into a proficient full-stack developer. Covering everything you need to know, this course delves into HTML5, CSS3, and JavaScript (including ES6) to build modern, responsive websites. Master server-side development with Node.js and learn to create and manage APIs. Explore mobile development and more to ensure you're equipped with the latest skills and technologies. Ideal for aspiring developers and tech enthusiasts, this course offers practical experience and comprehensive coverage to prepare you for a successful career in full-stack web development.",
     courseLink: "https://www.youtube.com/embed/lkO8wbL1zxM?si=cH-6ChW8TeIVbEJ6",
   },
 ];
@@ -503,7 +653,7 @@ export type TCourseContents = {
   videoLinks: string[];
 };
 
-export type TComments = {
+export type TReview = {
   student: TStudentRankings;
   body: string;
 };
@@ -517,8 +667,10 @@ export type Course = {
   coursePrice?: string;
   isPaidCourse: Boolean;
   courseLink: string;
+  aboutCourse: string;
+  description: string;
   courseIndex?: TCourseContents[];
-  comments?: TComments[];
+  reviews?: TReview[];
 };
 
 export default coursesList;

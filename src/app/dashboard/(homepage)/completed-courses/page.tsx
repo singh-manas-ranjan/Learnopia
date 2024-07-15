@@ -2,6 +2,7 @@ import CompletedCourseCard from "@/app/ui/dashboard/completedCourseCard/Complete
 import { Box, Heading } from "@chakra-ui/react";
 import React from "react";
 import coursesList from "../../../../../public/courses";
+import { sxScrollbar } from "../../../../../public/scrollbarStyle";
 
 const main = {
   width: "100%",
@@ -31,7 +32,7 @@ const CompletedCourses = () => {
             Completed Courses
           </Heading>
         </Box>
-        <Box overflowY={"scroll"} w={"100%"} h={"100%"}>
+        <Box overflowY={"scroll"} w={"100%"} h={"100%"} sx={sxScrollbar}>
           <Box display={"grid"} rowGap={5} p={".5rem"}>
             {coursesList.map((course, idx) => (
               <CompletedCourseCard key={idx} course={course} />

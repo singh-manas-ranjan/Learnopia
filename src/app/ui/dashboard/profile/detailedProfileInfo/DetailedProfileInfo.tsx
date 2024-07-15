@@ -17,6 +17,7 @@ import EditPersonalInfo from "../editPersonalInfo/EditPersonalInfo";
 import ResetPassword from "../resetPassword/ResetPassword";
 import SocialLinks from "../socialLinks/SocialLinks";
 import TextEditor from "../textEditor/TextEditor";
+import { sxScrollbar } from "../../../../../../public/scrollbarStyle";
 
 const DetailedProfileInfo = () => {
   return (
@@ -36,8 +37,15 @@ const DetailedProfileInfo = () => {
         h={{ base: "100%" }}
         overflowY={{ base: "scroll" }}
         paddingBlock={".1rem"}
+        sx={sxScrollbar}
       >
-        <TabPanel p={0} paddingBlock={1} mt={5} overflowY={"scroll"}>
+        <TabPanel
+          p={0}
+          paddingBlock={1}
+          mt={5}
+          overflowY={"scroll"}
+          sx={sxScrollbar}
+        >
           <Box
             borderRadius={6}
             display={"flex"}

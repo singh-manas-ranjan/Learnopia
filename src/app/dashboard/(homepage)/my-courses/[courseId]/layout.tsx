@@ -21,12 +21,14 @@ import {
   Tabs,
   Wrap,
   WrapItem,
+  Button,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { MdOndemandVideo } from "react-icons/md";
 import coursesList from "../../../../../../public/courses";
 import ShareButton from "@/app/ui/dashboard/enrolledCoursesContainer/myCoursesCard/shareButton/ShareButton";
 import TextEditor from "@/app/ui/dashboard/profile/textEditor/TextEditor";
+import { sxScrollbar } from "../../../../../../public/scrollbarStyle";
 
 interface Props {
   params: { courseId: string };
@@ -61,6 +63,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
           columnGap={".5rem"}
           flexDirection={{ base: "column", xl: "row" }}
           overflowY={"scroll"}
+          sx={sxScrollbar}
         >
           <Flex flex={6} flexDirection={"column"}>
             <Grid
@@ -82,7 +85,13 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
               <Text as={"h5"} sx={textFontSize}>
                 {course.author}
               </Text>
-              <Box overflowY={"scroll"} w={"100%"} h={"100%"} mt={5}>
+              <Box
+                overflowY={"scroll"}
+                w={"100%"}
+                h={"100%"}
+                mt={5}
+                sx={sxScrollbar}
+              >
                 <Box
                   h={"fit-content"}
                   w={"100%"}
@@ -100,7 +109,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 </Box>
                 <Box mt={5} width={"100%"}>
                   <Tabs height={"fit-content"}>
-                    <TabList overflowX={"scroll"}>
+                    <TabList overflowX={"scroll"} sx={sxScrollbar}>
                       <Tab>Description</Tab>
                       <Tab>Reviews</Tab>
                       <Tab>Discussion</Tab>
@@ -109,113 +118,118 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                     </TabList>
                     <TabPanels>
                       <TabPanel>
-                        <Box w={{ base: "100%", md: "65%" }}>
-                          <Text sx={textFontSize}>
-                            The Google Project Management Certificate introduces
-                            learners to project management fundamentals
-                            including various approaches, tools and templates,
-                            goal-setting, risk management, team dynamics, and
-                            data-driven decision making.
-                          </Text>
-                          <Text mt={5} sx={textFontSize}>
-                            The program, created by Google employees in the
-                            field, is designed to provide you with job-ready
-                            skills in about 6 months to start or advance your
-                            career in Project Management.
-                          </Text>
+                        <Box w={{ base: "100%", md: "90%" }}>
+                          <Text sx={textFontSize}>{course.description}</Text>
                         </Box>
                       </TabPanel>
                       <TabPanel>
                         <Box w={{ base: "100%", md: "95%" }}>
                           <Box
                             w={"100%"}
-                            maxH={{ base: "30rem", sm: "35rem" }}
+                            // maxH={{ base: "30rem", sm: "35rem" }}
                             display={"flex"}
                             flexDir={"column"}
                             rowGap={3}
                           >
-                            {course.comments && (
+                            {course.reviews && (
                               <Box
                                 w={"100%"}
-                                overflowY={"scroll"}
-                                h={{ base: "20rem", sm: "25rem", xl: "30rem" }}
+                                // overflowY={"scroll"}
+                                // h={{
+                                //   base: "20rem",
+                                //   sm: "25rem",
+                                //   xl: "fit-content",
+                                // }}
+                                h={"fit-content"}
                               >
-                                <Accordion h={"100%"} overflowY={"scroll"}>
-                                  {course.comments?.map((comment, idx) => (
-                                    <AccordionItem key={idx}>
-                                      <Text>
-                                        <AccordionButton>
-                                          <Box
-                                            as="span"
-                                            flex="1"
-                                            textAlign="left"
-                                          >
-                                            <WrapItem
-                                              display={"flex"}
-                                              alignItems={{
-                                                base: "center",
-                                                md: "start",
-                                                lg: "center",
-                                              }}
-                                              flexDirection={{
-                                                md: "column",
-                                                lg: "row",
-                                              }}
-                                              columnGap={{
-                                                base: ".5rem",
-                                                md: "0",
-                                              }}
+                                {/* <Accordion h={"100%"} overflowY={"scroll"}> */}
+                                <Accordion h={"100%"}>
+                                  {course.reviews
+                                    ?.splice(0, 4)
+                                    .map((review, idx) => (
+                                      <AccordionItem key={idx}>
+                                        <Text>
+                                          <AccordionButton>
+                                            <Box
+                                              as="span"
+                                              flex="1"
+                                              textAlign="left"
                                             >
-                                              <Avatar
-                                                name={comment.student.name}
-                                                src={comment.student.imageSrc}
-                                                boxSize={{
-                                                  base: "2rem",
-                                                  lg: "2.5rem",
+                                              <WrapItem
+                                                display={"flex"}
+                                                alignItems={{
+                                                  base: "center",
+                                                  md: "start",
+                                                  lg: "center",
                                                 }}
-                                              />
-                                              <Grid
-                                                m={{ lg: 2 }}
-                                                ml={{ lg: 5 }}
-                                                width={"100%"}
+                                                flexDirection={{
+                                                  md: "column",
+                                                  lg: "row",
+                                                }}
+                                                columnGap={{
+                                                  base: ".5rem",
+                                                  md: "0",
+                                                }}
                                               >
-                                                <Flex
-                                                  justifyContent={
-                                                    "space-between"
-                                                  }
-                                                  alignItems={"center"}
+                                                <Avatar
+                                                  name={review.student.name}
+                                                  src={review.student.imageSrc}
+                                                  boxSize={{
+                                                    base: "2rem",
+                                                    lg: "2.5rem",
+                                                  }}
+                                                />
+                                                <Grid
+                                                  m={{ lg: 2 }}
+                                                  ml={{ lg: 5 }}
                                                   width={"100%"}
                                                 >
+                                                  <Flex
+                                                    justifyContent={
+                                                      "space-between"
+                                                    }
+                                                    alignItems={"center"}
+                                                    width={"100%"}
+                                                  >
+                                                    <Text
+                                                      fontSize={{
+                                                        base: "sm",
+                                                        xl: "md",
+                                                      }}
+                                                    >
+                                                      {review.student.name}
+                                                    </Text>
+                                                  </Flex>
                                                   <Text
                                                     fontSize={{
-                                                      base: "sm",
-                                                      xl: "md",
+                                                      base: ".6rem",
+                                                      sm: ".75rem",
+                                                      lg: ".8rem",
                                                     }}
+                                                    color={"#8D94A3"}
                                                   >
-                                                    {comment.student.name}
+                                                    {`${review.body.substring(
+                                                      0,
+                                                      100
+                                                    )} ...`}
                                                   </Text>
-                                                </Flex>
-                                                <Text
-                                                  fontSize={{
-                                                    base: ".6rem",
-                                                    sm: ".75rem",
-                                                    lg: ".8rem",
-                                                  }}
-                                                  color={"#8D94A3"}
-                                                >
-                                                  {`${comment.body.substring(
-                                                    0,
-                                                    100
-                                                  )} ...`}
-                                                </Text>
-                                              </Grid>
-                                            </WrapItem>
-                                          </Box>
-                                        </AccordionButton>
-                                      </Text>
-                                    </AccordionItem>
-                                  ))}
+                                                </Grid>
+                                              </WrapItem>
+                                            </Box>
+                                          </AccordionButton>
+                                        </Text>
+                                      </AccordionItem>
+                                    ))}
                                 </Accordion>
+                                <Button
+                                  variant={"outline"}
+                                  colorScheme="teal"
+                                  size={"xs"}
+                                  m={3}
+                                  borderRadius={"initial"}
+                                >
+                                  See More Reviews
+                                </Button>
                               </Box>
                             )}
                             <Box
@@ -223,8 +237,9 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                               p={".3rem"}
                               overflowY={"scroll"}
                               maxH={{ base: "10rem", md: "8rem" }}
+                              sx={sxScrollbar}
                             >
-                              <TextEditor label="Leave a Comment" />
+                              <TextEditor label="Write a review" />
                             </Box>
                           </Box>
                         </Box>
@@ -346,9 +361,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 </Accordion>
                 <Box paddingInline={6}>
                   <Text paddingInline={4} sx={textFontSize}>
-                    This course is designed to help you for your practical day
-                    to day project management, to improve your project
-                    management knowledge
+                    {course.aboutCourse}
                   </Text>
                 </Box>
               </Grid>
@@ -368,6 +381,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 w={"100%"}
                 paddingInline={3}
                 overflowY={"scroll"}
+                sx={sxScrollbar}
               >
                 <Accordion allowToggle display={"grid"}>
                   {course?.courseIndex?.map((courseDetails, index) => (
