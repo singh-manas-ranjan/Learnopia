@@ -53,7 +53,10 @@ const CourseCard = ({ course }: Props) => {
           <Box display={"flex"} justifyContent={"space-between"}>
             <Text sx={textStyle}>{course.courseRating}</Text>
             <Text color="blue.600" sx={textStyle}>
-              {course.coursePrice ? course.coursePrice : "Free"}
+              {/* {course.coursePrice ? course.coursePrice : "Free"} */}
+              {course.coursePrice === 0
+                ? `Free`
+                : `₹ ${course.coursePrice.toLocaleString()}`}
             </Text>
           </Box>
         </Grid>

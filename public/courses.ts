@@ -7,7 +7,7 @@ const coursesList: Course[] = [
     author: "Dr.Angel Yu",
     courseRating: "4.5",
     courseImg: "card1.jpeg",
-    coursePrice: "₹3,099",
+    coursePrice: 3099,
     isPaidCourse: true,
     aboutCourse:
       "Become a Full-Stack Web Developer with just ONE course. HTML, CSS, Javascript, Node, React, PostgreSQL, Web3 and DApps",
@@ -96,7 +96,7 @@ const coursesList: Course[] = [
     author: "Durgesh Tiwari",
     courseRating: "4.7",
     courseImg: "card2.jpeg",
-    coursePrice: "₹3,099",
+    coursePrice: 3099,
     isPaidCourse: true,
     aboutCourse:
       "Spring Boot 3: Learn Spring 6, Spring Core, Spring REST, Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate, MySQL",
@@ -207,7 +207,7 @@ const coursesList: Course[] = [
     author: "Pavan Kumar",
     courseRating: "4.6",
     courseImg: "card3.jpeg",
-    coursePrice: "₹599",
+    coursePrice: 599,
     isPaidCourse: true,
     aboutCourse:
       '"TOP RATED #1 Master SELENIUM java 4 (Latest) course" -5 Million students learning worldWide with great collaboration',
@@ -290,6 +290,7 @@ const coursesList: Course[] = [
     author: "Code With Harry",
     courseRating: "4.3",
     courseImg: "card4.jpeg",
+    coursePrice: 0,
     isPaidCourse: false,
     aboutCourse:
       "Learn Django from scratch, build an E-commerce store, web based PDF generators, APIs using Python &amp; Django",
@@ -381,7 +382,7 @@ const coursesList: Course[] = [
     author: "Colt Steel",
     courseRating: "4.5",
     courseImg: "card5.jpeg",
-    coursePrice: "₹4,499",
+    coursePrice: 4499,
     isPaidCourse: true,
     aboutCourse:
       "JUST COMPLETELY REDONE! Master SQL, Work With Complex Databases, Build Reports, and More!",
@@ -521,7 +522,7 @@ const coursesList: Course[] = [
     courseRating: "4.7",
     courseImg: "card6.jpeg",
     isPaidCourse: true,
-    coursePrice: "₹4,499",
+    coursePrice: 4499,
     aboutCourse:
       "[LATEST VERSION 2.x] Only course to master Appium &amp; build production ready frameworks with CICD integration from scratch",
     description:
@@ -595,7 +596,7 @@ const coursesList: Course[] = [
     author: "YouAccel Training",
     courseRating: "4.2",
     courseImg: "card7.jpeg",
-    coursePrice: "₹1,299",
+    coursePrice: 1299,
     isPaidCourse: true,
     aboutCourse:
       "Learn how the Internet Works - HTTP/HTTPS, Mail Delivery (SMTP), LAN, WAN, Network Basics & Firewalls",
@@ -609,7 +610,7 @@ const coursesList: Course[] = [
     author: "Srini Vanamala",
     courseRating: "4.5",
     courseImg: "card8.jpeg",
-    coursePrice: "₹5,900",
+    coursePrice: 5900,
     isPaidCourse: true,
     aboutCourse:
       "Learn to build websites with HTML , CSS , JAVASCRIPT , Bootstrap , PHP , MySQL , WordPress , OOP & more!",
@@ -623,7 +624,7 @@ const coursesList: Course[] = [
     author: "Brad Hussey",
     courseRating: "4.6",
     courseImg: "card13.jpeg",
-    coursePrice: "₹3,699",
+    coursePrice: 3699,
     isPaidCourse: true,
     aboutCourse:
       "Become a Full-Stack Web Designer in 2023 - Learn Everything from Web Design Fundamentals to Front-End Web Development",
@@ -637,7 +638,7 @@ const coursesList: Course[] = [
     author: "Development Island (UK)",
     courseRating: "4.4",
     courseImg: "card16.jpeg",
-    coursePrice: "₹3,699",
+    coursePrice: 3699,
     isPaidCourse: true,
     aboutCourse:
       "The only course you need to become a full-stack web developer. Covers HTML5, CSS3, JS, ES6, Node, APIs, Mobile & more!",
@@ -664,7 +665,7 @@ export type Course = {
   author: string;
   courseRating: string;
   courseImg: string;
-  coursePrice?: string;
+  coursePrice: number;
   isPaidCourse: Boolean;
   courseLink: string;
   aboutCourse: string;
