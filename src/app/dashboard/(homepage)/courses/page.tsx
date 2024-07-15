@@ -5,6 +5,7 @@ import coursesList from "../../../../../public/courses";
 import CourseCard from "@/app/ui/dashboard/courseCard/CourseCard";
 import OrderByBtn from "@/app/ui/dashboard/orderByBtn/OrderByBtn";
 import orderByBtns from "../../../../../public/orderByBtns";
+import { sxScrollbar } from "../../../../../public/scrollbarStyle";
 
 const main = {
   width: "100%",
@@ -49,7 +50,7 @@ const Courses = () => {
           />
         ))}
       </Box>
-      <Box overflowY={"scroll"} w={"100%"} h={"100%"}>
+      <Box overflowY={"scroll"} w={"100%"} h={"100%"} sx={sxScrollbar}>
         <SimpleGrid
           spacing={5}
           templateColumns={{

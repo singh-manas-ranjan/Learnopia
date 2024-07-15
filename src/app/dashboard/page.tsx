@@ -18,6 +18,7 @@ import { FaAngleRight } from "react-icons/fa";
 import Barchart from "../ui/dashboard/barchart/Barchart";
 import studentRankings from "../../../public/rankingData";
 import DashBoardCourses from "../ui/dashboard/dashboardCourses/DashBoardCourses";
+import { sxScrollbar } from "../../../public/scrollbarStyle";
 
 const main = {
   width: "100%",
@@ -38,6 +39,7 @@ const Dashboard = () => {
         display={"flex"}
         flexDirection={{ base: "column", lg: "row" }}
         overflowY={"scroll"}
+        sx={sxScrollbar}
       >
         <Flex flex={6} flexDirection={"column"} p={"1rem"} rowGap={10}>
           <Box
@@ -144,7 +146,7 @@ const Dashboard = () => {
                 <Text>My ranking</Text>
                 <Link href={"#"}>View All</Link>
               </Box>
-              <Box overflowY={"scroll"} h={"100%"} w={"100%"}>
+              <Box overflowY={"scroll"} h={"100%"} w={"100%"} sx={sxScrollbar}>
                 <Accordion allowToggle>
                   {studentRankings.map((student, idx) => (
                     <AccordionItem key={idx}>

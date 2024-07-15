@@ -1,6 +1,7 @@
 import EnrolledCourses from "@/app/ui/dashboard/enrolledCoursesContainer/EnrolledCourses";
 import { Box } from "@chakra-ui/react";
 import React from "react";
+import { sxScrollbar } from "../../../../../public/scrollbarStyle";
 
 const main = {
   width: "100%",
@@ -16,7 +17,7 @@ const main = {
 const MyCourses = () => {
   return (
     <Box as="main" sx={main}>
-      <Box overflowY={"scroll"} w={"100%"} h={"100%"}>
+      <Box overflowY={"scroll"} w={"100%"} h={"100%"} sx={sxScrollbar}>
         <EnrolledCourses />
       </Box>
     </Box>

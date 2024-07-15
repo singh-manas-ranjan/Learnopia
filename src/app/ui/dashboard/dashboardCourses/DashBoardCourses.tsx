@@ -6,6 +6,7 @@ import coursesList from "../../../../../public/courses";
 import CourseCard from "../courseCard/CourseCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { sxScrollbar } from "../../../../../public/scrollbarStyle";
 
 const DashBoardCourses = () => {
   const [isLargerThan990] = useMediaQuery("(min-width: 990px)", {
@@ -31,7 +32,7 @@ const DashBoardCourses = () => {
   return (
     <>
       {isLargerThan990 ? (
-        <Box overflowY={"scroll"} h={"100%"} w={"100%"}>
+        <Box overflowY={"scroll"} h={"100%"} w={"100%"} sx={sxScrollbar}>
           {" "}
           <SimpleGrid
             spacing={4}

@@ -5,6 +5,7 @@ import { useEditor, EditorContent, EditorProvider } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Underline } from "@tiptap/extension-underline";
 import ToolBar from "./ToolBar";
+import { sxScrollbar } from "../../../../public/scrollbarStyle";
 
 const Tiptap = ({ onChange, content }: any) => {
   //   const extensions = [StarterKit, Underline];
@@ -36,7 +37,7 @@ const Tiptap = ({ onChange, content }: any) => {
     >
       <ToolBar editor={editor} content={content} />
       <Divider />
-      <Box w={"100%"} h={"100%"} overflowY={"scroll"}>
+      <Box w={"100%"} h={"100%"} overflowY={"scroll"} sx={sxScrollbar}>
         <EditorContent
           style={{
             whiteSpace: "pre-line",
