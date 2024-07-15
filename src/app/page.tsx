@@ -1,6 +1,5 @@
 "use client";
 import { MdStart } from "react-icons/md";
-import { LiaSignInAltSolid } from "react-icons/lia";
 import {
   Box,
   Button,
@@ -10,6 +9,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import LoginModal from "./ui/auth/loginModal/LoginModal";
 
 export default function Page() {
   const mainStyle = {
@@ -77,14 +77,7 @@ export default function Page() {
           online platform.
         </Heading>
         <HStack spacing={5}>
-          <Button
-            as={"a"}
-            href="/login"
-            sx={btnStyle}
-            size={{ base: "sm", md: "md" }}
-          >
-            Login <LiaSignInAltSolid size={20} />
-          </Button>
+          <LoginModal />
           <Button
             as={"a"}
             href="/register"

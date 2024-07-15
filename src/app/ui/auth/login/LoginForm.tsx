@@ -17,22 +17,26 @@ interface FormType {
   password: string;
 }
 
-const submitBtn = {
-  mt: "4",
-  bg: "#0275d8",
-  color: "#fff",
-  _hover: { color: "#fff", bg: "#59A9FF" },
-};
-
 const errorMsg = {
   color: "red",
+  fontSize: { base: "xs", lg: "sm" },
 };
 
 const inputField = {
   bg: "#fff",
+  fontSize: { base: "sm" },
 };
 
-const LoginForm = () => {
+type TAuth = {
+  role: "ADMIN" | "INSTRUCTOR" | "STUDENT";
+  successPath: string;
+};
+
+type Props = {
+  access: TAuth;
+};
+
+const LoginForm = ({ access: { role, successPath } }: Props) => {
   const {
     register,
     handleSubmit,
@@ -41,13 +45,15 @@ const LoginForm = () => {
 
   const router = useRouter();
   const onSubmit = (e: FormType) => {
-    router.push("/home");
+    router.push(successPath);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl>
-        <FormLabel htmlFor="username">Username</FormLabel>
+        <FormLabel htmlFor="username" fontSize={{ base: "sm", lg: "md" }}>
+          Username
+        </FormLabel>
         <Input
           {...register("username", {
             required: { value: true, message: "username is required." },
@@ -56,11 +62,15 @@ const LoginForm = () => {
           id="username"
           name="username"
           sx={inputField}
+          size={{ base: "sm", lg: "md" }}
+          placeholder="username"
         />
         <Text sx={errorMsg}>{errors.username?.message}</Text>
       </FormControl>
       <FormControl mt={5}>
-        <FormLabel htmlFor="password">Password</FormLabel>
+        <FormLabel htmlFor="password" fontSize={{ base: "sm", lg: "md" }}>
+          Password
+        </FormLabel>
         <Input
           {...register("password", {
             required: { value: true, message: "password is required" },
@@ -69,10 +79,12 @@ const LoginForm = () => {
           name="password"
           id="password"
           sx={inputField}
+          size={{ base: "sm", lg: "md" }}
+          placeholder="password"
         />
         <Text sx={errorMsg}>{errors.password?.message}</Text>
       </FormControl>
-      <FormControl mt={5}>
+      <FormControl mt={5} fontSize={{ base: "sm", lg: "md" }}>
         <Text>
           Not registered ?{" "}
           <Link href={"/register"} style={{ color: "#0275d8" }}>
@@ -81,7 +93,13 @@ const LoginForm = () => {
         </Text>
       </FormControl>
       <FormControl>
-        <Button type="submit" sx={submitBtn} onSubmit={handleSubmit(onSubmit)}>
+        <Button
+          type="submit"
+          mt={5}
+          onSubmit={handleSubmit(onSubmit)}
+          colorScheme="teal"
+          size={{ base: "sm", lg: "md" }}
+        >
           Sign in
         </Button>
       </FormControl>
