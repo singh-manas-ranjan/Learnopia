@@ -1,15 +1,7 @@
 "use client";
-import { MdStart } from "react-icons/md";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  HStack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import LoginModal from "./ui/auth/loginModal/LoginModal";
+import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import SignUpModal from "./ui/auth/signUpModal/SignUpModal";
+import SignInModal from "./ui/auth/signInModal/SignInModal";
 
 export default function Page() {
   const mainStyle = {
@@ -77,15 +69,8 @@ export default function Page() {
           online platform.
         </Heading>
         <HStack spacing={5}>
-          <LoginModal />
-          <Button
-            as={"a"}
-            href="/register"
-            sx={btnStyle}
-            size={{ base: "sm", md: "md" }}
-          >
-            Register <MdStart size={20} />
-          </Button>
+          <SignInModal />
+          <SignUpModal />
         </HStack>
       </VStack>
     </Box>

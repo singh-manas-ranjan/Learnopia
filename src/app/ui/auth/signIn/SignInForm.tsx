@@ -5,6 +5,7 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -27,6 +28,10 @@ const inputField = {
   fontSize: { base: "sm" },
 };
 
+const formLabel = {
+  fontSize: { base: "sm", lg: "md" },
+};
+
 type TAuth = {
   role: "ADMIN" | "INSTRUCTOR" | "STUDENT";
   successPath: string;
@@ -36,11 +41,12 @@ type Props = {
   access: TAuth;
 };
 
-const LoginForm = ({ access: { role, successPath } }: Props) => {
+const SignInForm = ({ access: { role, successPath } }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormType>();
 
   const router = useRouter();
@@ -51,7 +57,7 @@ const LoginForm = ({ access: { role, successPath } }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl>
-        <FormLabel htmlFor="username" fontSize={{ base: "sm", lg: "md" }}>
+        <FormLabel htmlFor="username" sx={formLabel}>
           Username
         </FormLabel>
         <Input
@@ -59,8 +65,6 @@ const LoginForm = ({ access: { role, successPath } }: Props) => {
             required: { value: true, message: "username is required." },
           })}
           type="text"
-          id="username"
-          name="username"
           sx={inputField}
           size={{ base: "sm", lg: "md" }}
           placeholder="username"
@@ -68,7 +72,7 @@ const LoginForm = ({ access: { role, successPath } }: Props) => {
         <Text sx={errorMsg}>{errors.username?.message}</Text>
       </FormControl>
       <FormControl mt={5}>
-        <FormLabel htmlFor="password" fontSize={{ base: "sm", lg: "md" }}>
+        <FormLabel htmlFor="password" sx={formLabel}>
           Password
         </FormLabel>
         <Input
@@ -76,35 +80,44 @@ const LoginForm = ({ access: { role, successPath } }: Props) => {
             required: { value: true, message: "password is required" },
           })}
           type="password"
-          name="password"
-          id="password"
           sx={inputField}
           size={{ base: "sm", lg: "md" }}
           placeholder="password"
         />
         <Text sx={errorMsg}>{errors.password?.message}</Text>
       </FormControl>
-      <FormControl mt={5} fontSize={{ base: "sm", lg: "md" }}>
+      {/* <FormControl mt={5} fontSize={{ base: "sm", lg: "md" }}>
         <Text>
           Not registered ?{" "}
           <Link href={"/register"} style={{ color: "#0275d8" }}>
             Register
           </Link>
         </Text>
-      </FormControl>
+      </FormControl> */}
       <FormControl>
-        <Button
-          type="submit"
-          mt={5}
-          onSubmit={handleSubmit(onSubmit)}
-          colorScheme="teal"
-          size={{ base: "sm", lg: "md" }}
-        >
-          Sign in
-        </Button>
+        <Stack direction={"row"} spacing={5}>
+          <Button
+            type="submit"
+            mt={5}
+            onSubmit={handleSubmit(onSubmit)}
+            colorScheme="blue"
+            size={{ base: "sm", lg: "md" }}
+          >
+            Sign in
+          </Button>
+          <Button
+            type="reset"
+            mt={5}
+            onSubmit={() => reset}
+            colorScheme="teal"
+            size={{ base: "sm", lg: "md" }}
+          >
+            Reset
+          </Button>
+        </Stack>
       </FormControl>
     </form>
   );
 };
 
-export default LoginForm;
+export default SignInForm;

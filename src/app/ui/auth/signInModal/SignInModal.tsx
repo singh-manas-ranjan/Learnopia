@@ -17,9 +17,9 @@ import {
 import React from "react";
 
 import { LiaSignInAltSolid } from "react-icons/lia";
-import LoginForm from "../login/LoginForm";
+import LoginForm from "../signIn/SignInForm";
 
-const LoginModal = () => {
+const SignInModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const btnStyle = {
@@ -42,7 +42,7 @@ const LoginModal = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: "xs", md: "md", lg: "lg" }}
+        size={{ base: "xs", md: "md", lg: "lg", xl: "xl" }}
         closeOnEsc={false}
       >
         <ModalOverlay />
@@ -82,4 +82,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default SignInModal;
