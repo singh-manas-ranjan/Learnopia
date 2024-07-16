@@ -9,6 +9,7 @@ import {
   RadioGroup,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -39,9 +40,10 @@ const formLabel = {
 
 type Props = {
   role: "ADMIN" | "INSTRUCTOR" | "STUDENT";
+  onClose: () => void;
 };
 
-const SignUpForm = ({ role }: Props) => {
+const SignUpForm = ({ role, onClose }: Props) => {
   const {
     register,
     handleSubmit,
@@ -51,8 +53,18 @@ const SignUpForm = ({ role }: Props) => {
   } = useForm<FormData>();
 
   const router = useRouter();
+  const toast = useToast();
+
   const onSubmit = (e: FormData) => {
-    router.push("/");
+    onClose();
+    toast({
+      title: "Account created Successfully",
+      description: "We've created your account for you.",
+      status: "success",
+      duration: 4000,
+      position: "top",
+      isClosable: true,
+    });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

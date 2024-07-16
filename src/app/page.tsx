@@ -1,4 +1,3 @@
-"use client";
 import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import SignUpModal from "./ui/auth/signUpModal/SignUpModal";
 import SignInModal from "./ui/auth/signInModal/SignInModal";
@@ -14,17 +13,6 @@ export default function Page() {
     paddingInline: "2rem",
     justifyContent: "space-between",
     alignItems: "center",
-  };
-
-  const btnStyle = {
-    bgColor: "#044F63",
-    color: "#fff",
-    _hover: { bg: "#55c2da" },
-    cursor: "pointer",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    columnGap: 2,
   };
 
   return (

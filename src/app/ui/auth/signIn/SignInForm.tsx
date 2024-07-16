@@ -7,6 +7,7 @@ import {
   Input,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -50,8 +51,24 @@ const SignInForm = ({ access: { role, successPath } }: Props) => {
   } = useForm<FormType>();
 
   const router = useRouter();
+  const toast = useToast();
+
+  const showSuccessToast = async () => {
+    setTimeout(() => {
+      toast({
+        title: "Login Successful",
+        description: "Welcome back to your dashboard.",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+        position: "top",
+      });
+    }, 500);
+  };
+
   const onSubmit = (e: FormType) => {
     router.push(successPath);
+    showSuccessToast();
   };
 
   return (

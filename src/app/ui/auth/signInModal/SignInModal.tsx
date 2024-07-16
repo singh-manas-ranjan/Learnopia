@@ -1,3 +1,4 @@
+"use client";
 import {
   useDisclosure,
   Button,
@@ -42,7 +43,7 @@ const SignInModal = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: "xs", md: "md", lg: "lg", xl: "xl" }}
+        size={{ base: "xs", md: "md", lg: "lg" }}
         closeOnEsc={false}
       >
         <ModalOverlay />

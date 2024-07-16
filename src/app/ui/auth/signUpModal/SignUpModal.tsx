@@ -1,3 +1,4 @@
+"use client";
 import {
   Button,
   Modal,
@@ -39,7 +40,7 @@ const SignUpModal = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: "xs", md: "md", lg: "lg", xl: "xl" }}
+        size={{ base: "xs", md: "md", lg: "lg" }}
         closeOnEsc={false}
       >
         <ModalOverlay />
@@ -55,13 +56,13 @@ const SignUpModal = () => {
               </TabList>
               <TabPanels>
                 <TabPanel>
-                  <SignUpForm role="STUDENT" />
+                  <SignUpForm role="STUDENT" onClose={onClose} />
                 </TabPanel>
                 <TabPanel>
-                  <SignUpForm role="INSTRUCTOR" />
+                  <SignUpForm role="INSTRUCTOR" onClose={onClose} />
                 </TabPanel>
                 <TabPanel>
-                  <SignUpForm role="ADMIN" />
+                  <SignUpForm role="ADMIN" onClose={onClose} />
                 </TabPanel>
               </TabPanels>
             </Tabs>
