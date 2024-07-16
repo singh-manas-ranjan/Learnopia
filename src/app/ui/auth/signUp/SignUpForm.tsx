@@ -5,16 +5,13 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Radio,
-  RadioGroup,
   Stack,
   Text,
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 interface FormData {
   firstName: string;

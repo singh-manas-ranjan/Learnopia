@@ -2,14 +2,12 @@
 import {
   Button,
   FormControl,
-  FormErrorMessage,
   FormLabel,
   Input,
   Stack,
   Text,
   useToast,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";

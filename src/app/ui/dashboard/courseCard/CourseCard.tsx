@@ -4,7 +4,6 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  color,
   Grid,
   Heading,
   Image,

@@ -46,10 +46,14 @@ const ShareButton = () => {
         <BsShare />
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={{ base: "xs", md: "sm", lg: "md" }}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Share</ModalHeader>
+          <ModalHeader fontSize={{ base: "sm", sm: "md" }}>Share</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex justifyContent={"space-evenly"} pb={3}>

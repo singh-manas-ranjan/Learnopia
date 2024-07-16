@@ -42,7 +42,8 @@ const button = {
   display: "flex",
   maxWidth: "fit-content",
   outline: "none",
-  _hover: { bg: "#EFF8FF" },
+  borderRadius: { base: "50%", sm: 6 },
+  p: { base: 0, sm: 5 },
 };
 
 const profile = {
@@ -108,7 +109,12 @@ const Navbar = ({ navLinks }: Props) => {
               style={{ marginRight: ".8rem", cursor: "pointer" }}
             />
           </Flex>
-          <MenuButton as={Button} sx={button}>
+          <MenuButton
+            as={Button}
+            sx={button}
+            _active={{ bg: "none" }}
+            _hover={{ bg: "none" }}
+          >
             <Box sx={profile}>
               <Image
                 src={"/user.jpeg"}
@@ -117,7 +123,7 @@ const Navbar = ({ navLinks }: Props) => {
                 alt="user"
                 style={{ borderRadius: "50%" }}
               />{" "}
-              {minWidth600 && <Text>example@user.in</Text>}
+              {minWidth600 && <Text>username</Text>}
             </Box>
           </MenuButton>
           <MenuList
@@ -135,6 +141,7 @@ const Navbar = ({ navLinks }: Props) => {
                 style={{ textDecoration: "none" }}
                 textAlign={"center"}
                 sx={link}
+                fontSize={{ base: "xs", sm: "sm" }}
               >
                 <TbLogout2 />
                 Logout

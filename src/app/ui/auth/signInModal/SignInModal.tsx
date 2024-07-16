@@ -8,7 +8,6 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
   Tab,
   TabList,
   TabPanel,
