@@ -51,7 +51,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
   };
 
   const textFontSize = {
-    fontSize: "sm",
+    fontSize: { base: "xs", md: "sm" },
   };
 
   return (
@@ -73,7 +73,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
               width={"100%"}
             >
               <Flex justifyContent={"space-between"}>
-                <Heading as="h1" size={{ base: "md", lg: "lg" }} color={"#333"}>
+                <Heading as="h1" size={{ base: "sm", lg: "lg" }} color={"#333"}>
                   {course.courseName}
                 </Heading>
                 <Flex columnGap={2} paddingInline={1} alignItems={"center"}>
@@ -110,11 +110,11 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                 <Box mt={5} width={"100%"}>
                   <Tabs height={"fit-content"}>
                     <TabList overflowX={"scroll"} sx={sxScrollbar}>
-                      <Tab>Description</Tab>
-                      <Tab>Reviews</Tab>
-                      <Tab>Discussion</Tab>
-                      <Tab>Resource</Tab>
-                      <Tab>Instructor</Tab>
+                      <Tab fontSize={{ base: "sm", lg: "md" }}>Description</Tab>
+                      <Tab fontSize={{ base: "sm", lg: "md" }}>Reviews</Tab>
+                      <Tab fontSize={{ base: "sm", lg: "md" }}>Discussion</Tab>
+                      <Tab fontSize={{ base: "sm", lg: "md" }}>Resource</Tab>
+                      <Tab fontSize={{ base: "sm", lg: "md" }}>Instructor</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel>
@@ -325,7 +325,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
           />
           <Flex flex={2} flexDirection={"column"} p={".5rem"} rowGap={6}>
             <Flex flexDirection={"column"} rowGap={3}>
-              <Heading fontSize={{ base: "md", md: "lg" }} pl={4}>
+              <Heading fontSize={{ base: "sm", lg: "md" }} pl={4}>
                 About the Course
               </Heading>
               <Grid rowGap={3}>
@@ -373,7 +373,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
               alignSelf={"center"}
             />
             <Flex flexDirection={"column"} rowGap={5} overflow={"hidden"}>
-              <Heading fontSize={{ base: "md", md: "lg" }} pl={4}>
+              <Heading fontSize={{ base: "sm", lg: "md" }} pl={4}>
                 Course Completion
               </Heading>
               <Box
@@ -398,7 +398,7 @@ const ParticularCourseLayout = ({ params, children }: Props) => {
                             as="span"
                             flex="1"
                             textAlign="left"
-                            fontSize={{ base: ".9rem" }}
+                            sx={textFontSize}
                             h={"fit-content"}
                           >
                             {`Section ${index + 1} - ${
