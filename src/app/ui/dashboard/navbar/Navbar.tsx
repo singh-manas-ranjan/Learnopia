@@ -4,7 +4,6 @@ import {
   Button,
   Flex,
   Text,
-  Link,
   Menu,
   MenuButton,
   MenuItem,
@@ -12,9 +11,10 @@ import {
   useMediaQuery,
   List,
   ListItem,
+  useToast,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosNotifications } from "react-icons/io";
 import { TbLogout2 } from "react-icons/tb";
 import { FaHandsClapping } from "react-icons/fa6";
@@ -26,6 +26,7 @@ import NextLink from "next/link";
 import styles from "./Navbar.module.css";
 import { TSideBarLinks } from "../sidebar/Sidebar";
 import { openMenuClick } from "@/lib/features/sideBar/sideBarSlice";
+import { useRouter } from "next/navigation";
 
 const nav = {
   bg: "#fff",
@@ -74,17 +75,68 @@ const link = {
 
 const rightNav = {
   alignItems: "center",
+  marginRight: { md: 5 },
 };
 
 interface Props {
   navLinks: TSideBarLinks;
 }
 
+// export type TUser = {
+//   _id: string;
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   phone: string;
+//   role: string;
+//   avatar: string;
+//   address: string;
+// };
+
+// export function getUserInfoFromLocalStorage() {
+//   if (typeof window === "undefined") return {} as TUser;
+
+//   const userInfo = localStorage.getItem("userInfo");
+//   if (userInfo) return JSON.parse(userInfo) as TUser;
+//   return {} as TUser;
+// }
+
+// export function removeUserInfoFromLocalStorage() {
+//   if (typeof window === "undefined") return;
+//   localStorage.removeItem("userInfo");
+// }
+
 const Navbar = ({ navLinks }: Props) => {
   const pathname = usePathname();
+  const router = useRouter();
   const [minWidth600] = useMediaQuery("(min-width: 600px)");
   const [maxWidth481] = useMediaQuery("(max-width: 481px)");
   const isMenuOpen = useAppSelector((state) => state.sideBar.isOpen);
+
+  // const [userInfo, setUserInfo] = useState<TUser>(
+  //   getUserInfoFromLocalStorage() || ({} as TUser)
+  // );
+
+  // useEffect(() => {
+  //   setUserInfo(getUserInfoFromLocalStorage());
+  // }, []);
+
+  const toast = useToast();
+
+  const handleSignOut = async () => {
+    // removeUserInfoFromLocalStorage();
+    router.push("/");
+    setTimeout(() => {
+      toast({
+        title: "Logged out successfully",
+        description: "Come back soon!",
+        status: "success",
+        duration: 5000,
+        position: "top",
+        isClosable: true,
+      });
+    }, 500);
+  };
 
   const dispatch = useAppDispatch();
   const handleClick = () => {
@@ -135,17 +187,16 @@ const Navbar = ({ navLinks }: Props) => {
               style={{
                 padding: "0",
               }}
+              onClick={() => handleSignOut()}
             >
-              <Link
-                href={"/"}
-                style={{ textDecoration: "none" }}
+              <Text
                 textAlign={"center"}
                 sx={link}
                 fontSize={{ base: "xs", sm: "sm" }}
               >
                 <TbLogout2 />
                 Logout
-              </Link>
+              </Text>
             </MenuItem>
           </MenuList>
         </Menu>

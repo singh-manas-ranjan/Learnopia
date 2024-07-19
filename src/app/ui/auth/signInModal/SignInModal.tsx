@@ -59,7 +59,8 @@ const SignInModal = () => {
               <TabPanels>
                 <TabPanel>
                   <LoginForm
-                    access={{ role: "STUDENT", successPath: "/dashboard" }}
+                    access={{ role: "STUDENTS", successPath: "/dashboard" }}
+                    onClose={onClose}
                   />
                 </TabPanel>
                 <TabPanel>
@@ -68,10 +69,14 @@ const SignInModal = () => {
                       role: "INSTRUCTOR",
                       successPath: "/instructor-dashboard",
                     }}
+                    onClose={onClose}
                   />
                 </TabPanel>
                 <TabPanel>
-                  <LoginForm access={{ role: "ADMIN", successPath: "/home" }} />
+                  <LoginForm
+                    access={{ role: "ADMIN", successPath: "/home" }}
+                    onClose={onClose}
+                  />
                 </TabPanel>
               </TabPanels>
             </Tabs>

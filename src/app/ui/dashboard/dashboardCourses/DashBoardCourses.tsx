@@ -7,6 +7,7 @@ import CourseCard from "../courseCard/CourseCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { sxScrollbar } from "../../../../../public/scrollbarStyle";
+import DashboardCoursesCard from "./DashboardCoursesCard";
 
 const DashBoardCourses = () => {
   const [isLargerThan990] = useMediaQuery("(min-width: 990px)", {
@@ -15,9 +16,17 @@ const DashBoardCourses = () => {
   });
 
   const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1261 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 1260, min: 990 },
+      items: 4,
+    },
     tablet: {
       breakpoint: { max: 989, min: 570 },
-      items: 2,
+      items: 3,
     },
     midMobile: {
       breakpoint: { max: 764, min: 520 },
@@ -31,7 +40,25 @@ const DashBoardCourses = () => {
 
   return (
     <>
-      {isLargerThan990 ? (
+      <Box width={"100%"} display={"grid"} height={"fit-content"}>
+        <Carousel
+          responsive={responsive}
+          itemClass={styles.carouselItem}
+          swipeable={true}
+          draggable={true}
+          className={styles.carousel}
+        >
+          {coursesList
+            .filter((course) => Number(course.courseRating) >= 4.5)
+            .sort((a, b) => {
+              return Number(b.courseRating) - Number(a.courseRating);
+            })
+            .map((course, idx) => (
+              <DashboardCoursesCard key={idx} course={course} />
+            ))}
+        </Carousel>
+      </Box>
+      {/* {isLargerThan990 ? (
         <Box overflowY={"scroll"} h={"100%"} w={"100%"} sx={sxScrollbar}>
           {" "}
           <SimpleGrid
@@ -72,7 +99,7 @@ const DashBoardCourses = () => {
               ))}
           </Carousel>
         </Box>
-      )}
+      )} */}
     </>
   );
 };

@@ -37,13 +37,13 @@ const Dashboard = () => {
         w={"100%"}
         h={"100%"}
         display={"flex"}
-        flexDirection={{ base: "column", lg: "row" }}
+        flexDirection={{ base: "column", xl: "row" }}
         overflowY={"scroll"}
         sx={sxScrollbar}
       >
         <Flex flex={6} flexDirection={"column"} p={"1rem"} rowGap={10}>
           <Box
-            flex={{ lg: 5 }}
+            flex={{ xl: 5 }}
             borderRadius={8}
             bgColor={"#2D89BA"}
             position={"relative"}
@@ -52,10 +52,10 @@ const Dashboard = () => {
             <Flex p={"1rem"} color={"#fff"}>
               <Flex
                 flexDirection={"column"}
-                w={{ base: "100%", md: "60%" }}
+                w={{ base: "100%", md: "65%", lg: "60%" }}
                 p={".5rem"}
                 h={"fit-content"}
-                rowGap={5}
+                rowGap={4}
               >
                 <Grid rowGap={3}>
                   <Heading fontSize={{ base: "2xl", lg: "2xl", xl: "3xl" }}>
@@ -63,7 +63,7 @@ const Dashboard = () => {
                   </Heading>
                   <Text
                     lineHeight={{ sm: "1.3rem", md: "1.7rem" }}
-                    fontSize={{ base: "sm", md: "md", xl: "lg" }}
+                    fontSize={{ base: "sm", md: "md" }}
                   >
                     Welcome to our new exam to attend and check your results how
                     long are you practice for your papers, we provide the best
@@ -108,8 +108,9 @@ const Dashboard = () => {
               w={"100%"}
               rowGap={3}
               overflow={"hidden"}
+              justifyContent={"space-around"}
             >
-              <Flex justifyContent={"space-between"} p={".5rem"}>
+              <Flex justifyContent={"space-between"} paddingInline={2}>
                 <Text color={"#2D89BA"}>Popular Courses</Text>
                 <Link href={"/dashboard/courses"} style={{ color: "#2D89BA" }}>
                   View All
@@ -121,7 +122,7 @@ const Dashboard = () => {
         </Flex>
         <Flex flex={2} flexDirection={"column"} p={"1rem"} rowGap={10}>
           <Box
-            flex={5}
+            flex={{ base: 6, xl: 5 }}
             borderRadius={8}
             bgColor={"#E8F5FE"}
             position={"relative"}
