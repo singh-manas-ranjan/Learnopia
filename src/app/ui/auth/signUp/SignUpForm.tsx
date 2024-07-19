@@ -16,7 +16,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { MdAttachEmail, MdLocalPhone } from "react-icons/md";
-import axios, { AxiosError } from "axios";
 import { EyeOff, Eye, Lock, User, PenLine } from "lucide-react";
 
 interface FormData {

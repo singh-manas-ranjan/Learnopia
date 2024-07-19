@@ -14,7 +14,6 @@ import {
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-// import axios, { AxiosError } from "axios";
 import { Lock, Eye, EyeOff, User } from "lucide-react";
 interface FormType {
   username: string;
